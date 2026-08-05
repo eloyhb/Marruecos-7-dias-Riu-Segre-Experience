@@ -13,7 +13,7 @@ Ruta actualizada del 25 de septiembre al 3 de octubre de 2026.
 4. Confirmar con **Commit changes** en la rama `main`.
 5. Comprobar **Settings → Pages → Deploy from a branch → main → / (root)**.
 6. Esperar a que **Actions → Pages build and deployment** aparezca en verde.
-7. Abrir la web con `?v=6` al final para evitar una copia antigua de la caché.
+7. Abrir la web con `?v=8` al final para evitar una copia antigua de la caché.
 
 ## Cambios principales
 
@@ -26,3 +26,8 @@ Ruta actualizada del 25 de septiembre al 3 de octubre de 2026.
 ## Privacidad
 
 No subir capturas con nombres, códigos de reserva, códigos de barras, pasaportes o datos personales. La web y sus archivos serán públicos.
+
+
+## Cambio de la versión 8
+
+La fotografía de cabecera se muestra completa en pantallas móviles, con el título situado debajo para evitar recortes.
