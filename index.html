@@ -4,12 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#16100d">
-  <meta name="description" content="Ruta de los Habibis por Marruecos, del 25 de septiembre al 3 de octubre de 2026, con mapa editable, reservas, actividades, lugares de interés y teléfonos de emergencia.">
+  <meta name="description" content="Ruta de los Habibis por Marruecos, del 25 de septiembre al 3 de octubre de 2026, con rutas directas a Google Maps, reservas, actividades, lugares de interés y teléfonos de emergencia.">
   <meta property="og:title" content="Habibi's welcome to Morocco">
   <meta property="og:description" content="Ruta del 25 de septiembre al 3 de octubre de 2026">
   <meta property="og:image" content="assets/social-preview.jpg">
   <title>Habibi's welcome to Morocco</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynhI+V7wi0YoScBv3xVhS8xNvKc=" crossorigin="">
   <style>
     :root{
       --ink:#241915; --muted:#755f52; --paper:#f6efe4; --card:#fffdf8;
@@ -47,6 +46,20 @@
     .known-costs{display:grid;gap:11px}.cost-row{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}.cost-row:last-child{border-bottom:0}.cost-row small{display:block;color:var(--muted)}.cost-row b{white-space:nowrap}
     .day{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow);margin:18px 0}.day-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;padding:21px 23px;background:linear-gradient(125deg,var(--red-dark),#b85a31);color:white}.day-head h3{font-size:clamp(1.35rem,3vw,2.15rem);line-height:1.06;letter-spacing:-.035em;margin:0 0 5px}.day-head p{margin:0;color:#ffe9da}.drive-pill{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26);border-radius:13px;padding:9px 11px;font-weight:900;white-space:nowrap}.day-body{padding:24px}.legs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.leg{background:var(--blue-soft);color:#244d59;border-radius:999px;padding:7px 10px;font-size:.84rem;font-weight:850}.timeline{border-left:2px solid #ddcbb3;margin-left:8px;padding-left:28px}.event{position:relative;padding:0 0 22px}.event:last-child{padding-bottom:2px}.event::before{content:"";position:absolute;left:-36px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);border:4px solid white;box-shadow:0 0 0 2px var(--red)}.event h4{margin:0;font-size:1.12rem}.event p{margin:6px 0;color:#614e43}.clock{display:inline-block;background:#f3e4d3;color:#71351e;border-radius:8px;padding:3px 7px;font-size:.78rem;font-weight:900;margin-right:7px}.place-link{border:0;background:none;padding:0;color:var(--red-dark);font-weight:900;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}.day-note{margin-top:17px;padding:15px;border-radius:15px;background:#faf2e5;border:1px solid var(--line);color:#604c40}
     .map-layout{display:grid;grid-template-columns:.43fr .57fr;gap:20px}.map-controls{display:grid;gap:14px}.day-select{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.day-select button{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 7px;font-weight:900;cursor:pointer}.day-select button.active{background:var(--red);border-color:var(--red);color:#fff}.route-stops{display:grid;gap:8px}.route-stop{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:9px}.route-stop .num{width:29px;height:29px;border-radius:50%;display:grid;place-items:center;background:var(--sand-soft);font-weight:950}.route-stop .stop-copy{min-width:0}.route-stop .stop-copy strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.route-stop .stop-copy small{display:block;color:var(--muted);font-size:.75rem}.route-stop .move{display:flex;gap:4px}.icon-btn{border:0;background:#f3e6d7;border-radius:8px;width:31px;height:31px;cursor:pointer;font-weight:900}.add-row{display:grid;grid-template-columns:1fr auto;gap:8px}.add-row input{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff}.btn{border:0;border-radius:13px;padding:11px 14px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn-primary{background:var(--red);color:#fff}.btn-secondary{background:var(--blue-soft);color:#214d59}.btn-outline{background:#fff;border:1px solid var(--line);color:var(--red-dark)}.map-actions{display:flex;gap:8px;flex-wrap:wrap}.map-frame{background:#ded8ce;border:1px solid var(--line);border-radius:22px;overflow:hidden;min-height:610px;position:relative}.map-frame #routeMap{width:100%;height:610px;display:block}.map-note{font-size:.83rem;color:var(--muted);margin:0}.map-hotspots{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.map-hotspots button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 9px;font-size:.8rem;font-weight:850;cursor:pointer}.route-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.route-stat{background:var(--blue-soft);border-radius:12px;padding:10px 12px}.route-stat span{display:block;color:#4b6971;font-size:.72rem;font-weight:900;text-transform:uppercase}.route-stat strong{font-size:1.15rem}.map-status{font-size:.84rem;color:var(--muted);min-height:1.3em}.map-help{background:#f8e8c8;border:1px solid #e6c887;border-radius:14px;padding:12px;font-size:.84rem}.leaflet-popup-content-wrapper{border-radius:15px}.leaflet-popup-content{line-height:1.45}.ferry-shot{width:100%;max-height:330px;object-fit:cover;object-position:top;border-radius:14px;border:1px solid var(--line);margin-top:12px}.cost-total{background:linear-gradient(120deg,#f8e8c8,#fff);border-radius:15px;padding:13px;margin-top:8px}.cost-total b{font-size:1.45rem}.version-badge{display:inline-block;background:#fff3d6;color:#6e4a08;border-radius:999px;padding:5px 9px;font-size:.75rem;font-weight:900;margin-left:7px}
+
+    .suggestion-badge{display:inline-flex;align-items:center;margin:0 6px 3px 0;padding:4px 7px;border-radius:999px;background:#fff1c9;color:#704c05;border:1px solid #e7c76e;font-size:.68rem;font-weight:950;letter-spacing:.045em;vertical-align:middle}
+    .status-badge{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;font-size:.7rem;font-weight:950;letter-spacing:.04em;margin-bottom:10px;background:var(--green-soft);color:#28513a;border:1px solid #b8d5c1}
+    .status-badge.suggestion{background:#fff1c9;color:#704c05;border-color:#e7c76e}
+    .status-badge.logistics{background:var(--blue-soft);color:#244d59;border-color:#bad5dc}
+    .route-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .route-link-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:19px;box-shadow:0 10px 24px rgba(68,42,28,.07);display:flex;flex-direction:column;gap:11px}
+    .route-link-card h3{margin:0;font-size:1.13rem}.route-link-card p{margin:0;color:var(--muted)}
+    .route-meta{display:flex;flex-wrap:wrap;gap:7px}.route-meta span{background:var(--blue-soft);color:#244d59;border-radius:999px;padding:6px 9px;font-size:.78rem;font-weight:850}
+    .route-link-card .btn{margin-top:auto}
+    .place-details{display:grid;gap:9px;margin-top:13px;padding-top:13px;border-top:1px solid var(--line)}
+    .place-details div{font-size:.88rem}.place-details strong{display:block;color:var(--red-dark);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+    .route-note{background:var(--sand-soft);border:1px solid #e1c58f;border-radius:18px;padding:16px;margin-bottom:17px}
+
     .booking-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.booking{background:#fff;border:1px solid var(--line);border-radius:22px;padding:21px;box-shadow:0 12px 28px rgba(68,42,28,.08)}.booking .tag{display:inline-block;border-radius:999px;padding:6px 9px;background:var(--green-soft);color:#2d6545;font-size:.76rem;font-weight:900}.booking .tag.pending{background:var(--warning);color:#755114}.booking h3{font-size:1.45rem;letter-spacing:-.03em;margin:12px 0 8px}.booking p{color:var(--muted)}.booking ul{padding-left:20px}.booking-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
     .place-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.place-card{background:#fff;border:1px solid var(--line);border-radius:21px;padding:20px;box-shadow:0 10px 27px rgba(68,42,28,.07)}.place-card .emoji{font-size:2.2rem}.place-card h3{font-size:1.42rem;margin:8px 0 5px}.place-card p{color:var(--muted);margin:0 0 12px}.chip-row{display:flex;gap:6px;flex-wrap:wrap}.chip{background:#f4e7d6;border-radius:999px;padding:6px 8px;font-size:.76rem;font-weight:850}
     .emergency-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.contact{background:#fff;border:1px solid var(--line);border-radius:19px;padding:18px}.contact .number{font-size:1.45rem;font-weight:950;letter-spacing:-.03em}.contact p{color:var(--muted);font-size:.9rem}.call{display:inline-flex;text-decoration:none;background:var(--red);color:#fff;border-radius:11px;padding:9px 11px;font-weight:900}.contact.insurance{border-color:#a9c7dc;background:#f3f8fb}.contact.consular{border-color:#d8c297;background:#fffaf0}
@@ -55,7 +68,7 @@
     footer{padding:70px 24px 45px;text-align:center;color:var(--muted)}
     dialog{border:0;border-radius:25px;padding:0;max-width:620px;width:calc(100% - 28px);box-shadow:0 30px 100px rgba(30,18,12,.42);background:#fffdf9;color:var(--ink)}dialog::backdrop{background:rgba(25,15,10,.68);backdrop-filter:blur(4px)}.modal-head{padding:23px 24px;background:linear-gradient(120deg,var(--red-dark),#b9542e);color:#fff;display:flex;justify-content:space-between;gap:15px}.modal-head h3{margin:0;font-size:2rem;letter-spacing:-.04em}.close-modal{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;width:38px;height:38px;border-radius:50%;font-size:1.2rem;cursor:pointer}.modal-body{padding:23px}.modal-body h4{margin:17px 0 6px}.modal-body p{color:var(--muted)}.modal-body ul{padding-left:20px}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
     @media(max-width:980px){.overview,.map-layout,.insurance-layout{grid-template-columns:1fr}.summary-grid{grid-template-columns:repeat(2,1fr)}.place-grid{grid-template-columns:repeat(2,1fr)}.emergency-grid{grid-template-columns:repeat(2,1fr)}.map-frame,.map-frame iframe{min-height:520px;height:520px}}
-    @media(max-width:690px){.hero{min-height:76svh}.hero-inner{padding:54px 18px 80px}.nav{padding:10px 14px}.brand{display:none}.wrap{padding:0 14px}.section{padding-top:48px}.section-title{display:block}.section-title p{margin-top:9px}.panel{padding:19px}.summary-grid,.booking-grid,.place-grid,.emergency-grid,.cover-list{grid-template-columns:1fr}.day-head{display:block}.drive-pill{display:inline-block;margin-top:11px}.day-body{padding:19px}.day-select{grid-template-columns:repeat(3,1fr)}.map-frame,.map-frame iframe{min-height:430px;height:430px}.map-layout{gap:14px}.route-stop{grid-template-columns:auto minmax(0,1fr)}.route-stop .move{grid-column:2;justify-content:flex-end}.modal-head h3{font-size:1.6rem}dialog{margin:auto 10px 10px;width:calc(100% - 20px);max-height:92svh;border-radius:24px 24px 16px 16px}.modal-body{overflow:auto;max-height:68svh}}
+    @media(max-width:690px){.hero{min-height:76svh}.hero-inner{padding:54px 18px 80px}.nav{padding:10px 14px}.brand{display:none}.wrap{padding:0 14px}.section{padding-top:48px}.section-title{display:block}.section-title p{margin-top:9px}.panel{padding:19px}.summary-grid,.booking-grid,.place-grid,.emergency-grid,.cover-list,.route-links{grid-template-columns:1fr}.day-head{display:block}.drive-pill{display:inline-block;margin-top:11px}.day-body{padding:19px}.day-select{grid-template-columns:repeat(3,1fr)}.map-frame,.map-frame iframe{min-height:430px;height:430px}.map-layout{gap:14px}.route-stop{grid-template-columns:auto minmax(0,1fr)}.route-stop .move{grid-column:2;justify-content:flex-end}.modal-head h3{font-size:1.6rem}dialog{margin:auto 10px 10px;width:calc(100% - 20px);max-height:92svh;border-radius:24px 24px 16px 16px}.modal-body{overflow:auto;max-height:68svh}}
     @media print{.hero{min-height:360px}.nav-shell,.map-actions,.add-row,.move,.close-modal{display:none!important}.map-layout{grid-template-columns:1fr}.map-frame{display:none}.day,.panel,.booking,.place-card,.contact{box-shadow:none;break-inside:avoid}.section{padding-top:30px}}
   </style>
 </head>
@@ -73,7 +86,7 @@
   <nav class="nav">
     <strong class="brand">Habibis 2026</strong>
     <div class="nav-links">
-      <a href="#ruta">Ruta</a><a href="#mapa">Mapa editable</a><a href="#reservas">Reservas</a><a href="#lugares">Paradas</a><a href="#emergencias">Emergencias</a><a href="#seguro">Seguro</a>
+      <a href="#ruta">Ruta</a><a href="#mapa">Rutas en Maps</a><a href="#reservas">Reservas</a><a href="#lugares">Paradas</a><a href="#emergencias">Emergencias</a><a href="#seguro">Seguro</a>
     </div>
   </nav>
 </div>
@@ -91,7 +104,7 @@
       </div>
       <div class="alert danger"><strong>Un ferry a las 08:00 del día 26 sería demasiado justo.</strong>Lleida → Algeciras son unas 11 h 30 min sin contar descansos. Saliendo a las 19:00, la llegada estimada sería alrededor de las 06:30–07:30. Con vehículo, la naviera exige presentarse antes del cierre de embarque; reservar un ferry posterior o adelantar la salida.</div>
       <div class="alert warning"><strong>La captura del ferry sirve como referencia de precio, no como horario definitivo.</strong>La vuelta que aparece en la imagen es el 1 de octubre, pero la ruta necesita cruzar el 2 de octubre para poder comer en Essaouira el día 1 y dormir después en Tánger.</div>
-      <div class="alert good"><strong>Mapa nuevo sin error de Google.</strong>La ruta dinámica se muestra con OpenStreetMap y recalcula al añadir, quitar o mover paradas. Un botón abre la misma selección en Google Maps.</div>
+      <div class="alert good"><strong>Rutas fiables en Google Maps.</strong>No incrustar un mapa dentro de la web para evitar fallos de carga y cálculos incompletos. Abrir cada trayecto directamente en Google Maps y añadir allí cualquier parada para recalcular distancia y tiempo.</div>
     </article>
     <aside class="panel">
       <h2>Costes conocidos</h2>
@@ -112,7 +125,7 @@
       <div class="day-head"><div><h3>Día 1 · Viernes 25 — Lleida → Algeciras</h3><p>Conducción nocturna</p></div><span class="drive-pill">🚗 ≈ 11 h 30 min + paradas</span></div>
       <div class="day-body"><div class="legs"><span class="leg">Lleida → Puerto de Algeciras · 11 h 15–11 h 45 de conducción</span></div><div class="timeline">
         <div class="event"><h4><span class="clock">19:00</span>Salida de <button class="place-link" data-place="lleida">Lleida</button></h4><p>Cena antes de salir o parada corta en ruta. Repartir turnos y descansar cada 2–2,5 horas.</p></div>
-        <div class="event"><h4><span class="clock">06:30–07:30</span>Llegada estimada al <button class="place-link" data-place="algeciras">Puerto de Algeciras (Algeciras)</button></h4><p>La hora depende de paradas, tráfico y turnos. No contar con llegar descansados.</p></div>
+        <div class="event"><h4><span class="clock">06:30–07:30</span>Llegada estimada al <button class="place-link" data-place="algeciras">Puerto de Algeciras (Algeciras)</button></h4><p>La hora depende de paradas, tráfico y turnos. Esperar al ferry en el puerto; no reservar alojamiento en Algeciras.</p></div>
       </div><div class="alert danger"><strong>No cuadra bien con un ferry a las 08:00.</strong>Para embarcar con vehículo hace falta llegar antes del cierre de aceptación. La opción prudente es reservar una salida posterior.</div></div>
     </article>
 
@@ -121,7 +134,7 @@
       <div class="day-body"><div class="legs"><span class="leg">Algeciras → Tánger Med · ferry</span><span class="leg">Tánger Med → Tánger · 45–55 min</span></div><div class="timeline">
         <div class="event"><h4>Ferry hacia <button class="place-link" data-place="tangermed">Puerto de Tánger Med (región de Tánger)</button></h4><p>Reservar margen para check-in, embarque, navegación, desembarque y frontera.</p></div>
         <div class="event"><h4>Llegada a <button class="place-link" data-place="tanger">Tánger</button></h4><p>Según la hora: <button class="place-link" data-place="kasbahtanger">Kasbah (Tánger)</button>, <button class="place-link" data-place="grandsocco">Grand Socco (Tánger)</button>, <button class="place-link" data-place="cafehafa">Café Hafa (Tánger)</button> y paseo por la medina.</p></div>
-      </div><div class="day-note">Si el ferry se retrasa, reducir la visita y acostarse pronto: Chefchaouen exige salir temprano al día siguiente.</div></div>
+      </div><div class="day-note">Si el ferry se retrasa, reducir la visita. Dormir en casa de Moha (Tánger) y descansar pronto para salir temprano hacia Chefchaouen.</div></div>
     </article>
 
     <article class="day">
@@ -129,7 +142,7 @@
       <div class="day-body"><div class="legs"><span class="leg">Tánger → Chefchaouen · 2 h–2 h 10</span><span class="leg">Chefchaouen → Tánger · 2 h–2 h 10</span></div><div class="timeline">
         <div class="event"><h4><span class="clock">07:00–07:30</span>Salida hacia <button class="place-link" data-place="chefchaouen">Chefchaouen</button></h4><p>La medina azul se disfruta más antes de que lleguen los grupos.</p></div>
         <div class="event"><h4><span class="clock">09:30–16:00</span>Visita y comida</h4><p><button class="place-link" data-place="outa">Plaza Outa el-Hammam (Chefchaouen)</button>, <button class="place-link" data-place="kasbahchef">Kasbah (Chefchaouen)</button>, <button class="place-link" data-place="raselmaa">Ras El Maa (Chefchaouen)</button> y callejones azules.</p></div>
-        <div class="event"><h4><span class="clock">18:00 aprox.</span>Regreso a Tánger</h4><p>Cena y preparar la jornada larga hacia Marrakech.</p></div>
+        <div class="event"><h4><span class="clock">18:00 aprox.</span>Regreso a Tánger</h4><p>Cenar, dormir en casa de Moha (Tánger) y preparar la jornada larga hacia Marrakech.</p></div>
       </div><div class="day-note">Comida típica: Bab Ssour (Chefchaouen). Aparcar fuera de la medina.</div></div>
     </article>
 
@@ -145,7 +158,7 @@
     <article class="day">
       <div class="day-head"><div><h3>Día 5 · Martes 29 — Marrakech + Agafay</h3><p>Actividad confirmada a las 16:00</p></div><span class="drive-pill">⏱️ actividad ≈ 6 h</span></div>
       <div class="day-body"><div class="legs"><span class="leg">Recogida en hotel o punto próximo (Marrakech)</span><span class="leg">Marrakech → Agafay → Marrakech</span></div><div class="timeline">
-        <div class="event"><h4><span class="clock">09:00–14:00</span>Mañana en Marrakech</h4><p><button class="place-link" data-place="majorelle">Jardín Majorelle (Marrakech)</button>, Guéliz o recorrido corto por la medina.</p></div>
+        <div class="event"><h4><span class="clock">09:00–14:00</span><span class="suggestion-badge">SUGERENCIA</span>Mañana libre en Marrakech</h4><p>Valorar <button class="place-link" data-place="majorelle">Jardín Majorelle (Marrakech)</button>, Guéliz o un recorrido corto por la medina. No forma parte del plan acordado.</p></div>
         <div class="event"><h4><span class="clock">15:55</span>Preparados para la recogida</h4><p>El guía debería contactar por WhatsApp esa mañana para confirmar hora y ubicación.</p></div>
         <div class="event"><h4><span class="clock">16:00–22:00</span><button class="place-link" data-place="agafay">Desierto de Agafay (región de Marrakech)</button></h4><p>Furgoneta con aire acondicionado, 1 h de quad compartido, 20 min en camello, cena, espectáculo, música, fuego, té y agua. Propinas no incluidas.</p></div>
       </div><div class="day-note">Importe pagado por Moha: 75 €. Confirmar si es el total o una señal.</div></div>
@@ -154,9 +167,9 @@
     <article class="day">
       <div class="day-head"><div><h3>Día 6 · Miércoles 30 — Marrakech completo</h3><p>Día sin carretera larga</p></div><span class="drive-pill">🚕 desplazamientos locales</span></div>
       <div class="day-body"><div class="timeline">
-        <div class="event"><h4><span class="clock">09:00</span><button class="place-link" data-place="majorelle">Jardín Majorelle (Marrakech)</button> o <button class="place-link" data-place="bahia">Palacio de la Bahía (Marrakech)</button></h4><p>Majorelle funciona con franja horaria; comprar la entrada previamente.</p></div>
-        <div class="event"><h4><span class="clock">11:30–17:30</span>Medina y monumentos</h4><p><button class="place-link" data-place="benyoussef">Madrasa Ben Youssef (Marrakech)</button>, zocos, <button class="place-link" data-place="koutoubia">Koutoubia (Marrakech)</button> y descanso.</p></div>
-        <div class="event"><h4><span class="clock">Atardecer</span><button class="place-link" data-place="jemaa">Jemaa el-Fna (Marrakech)</button></h4><p>Terraza antes del anochecer y paseo por la plaza después.</p></div>
+        <div class="event"><h4><span class="clock">09:00</span><span class="suggestion-badge">SUGERENCIA</span><button class="place-link" data-place="majorelle">Jardín Majorelle (Marrakech)</button> o <button class="place-link" data-place="bahia">Palacio de la Bahía (Marrakech)</button></h4><p>Elegir solo una de las dos opciones. Reservar Majorelle únicamente si finalmente se decide ir.</p></div>
+        <div class="event"><h4><span class="clock">11:30–17:30</span><span class="suggestion-badge">SUGERENCIA</span>Medina y monumentos</h4><p>Valorar <button class="place-link" data-place="benyoussef">Madrasa Ben Youssef (Marrakech)</button>, zocos y <button class="place-link" data-place="koutoubia">Koutoubia (Marrakech)</button>, dejando tiempo para descansar.</p></div>
+        <div class="event"><h4><span class="clock">Atardecer</span><span class="suggestion-badge">SUGERENCIA</span><button class="place-link" data-place="jemaa">Jemaa el-Fna (Marrakech)</button></h4><p>Tomar algo en una terraza antes del anochecer y pasear por la plaza después.</p></div>
       </div><div class="day-note">Elegir dos monumentos principales, zocos y plaza. Intentar verlo todo reduce mucho el disfrute.</div></div>
     </article>
 
@@ -165,7 +178,7 @@
       <div class="day-body"><div class="legs"><span class="leg">Marrakech → Essaouira · 2 h 35–2 h 50</span><span class="leg">Essaouira → Tánger · 7 h–7 h 30</span></div><div class="timeline">
         <div class="event"><h4><span class="clock">06:30–07:00</span>Check-out y salida</h4><p>Carretera hacia la costa atlántica.</p></div>
         <div class="event"><h4><span class="clock">09:30–13:00</span>Comida y visita exprés en <button class="place-link" data-place="essaouira">Essaouira</button></h4><p><button class="place-link" data-place="portessaouira">Puerto pesquero (Essaouira)</button>, <button class="place-link" data-place="skala">Skala de la Ville (Essaouira)</button>, medina y pescado.</p></div>
-        <div class="event"><h4><span class="clock">13:00–20:30/21:00</span>Carretera hacia Tánger</h4><p>Llegada tardía, cena ligera y descanso.</p></div>
+        <div class="event"><h4><span class="clock">13:00–20:30/21:00</span>Carretera hacia Tánger</h4><p>Llegar tarde, cenar algo ligero y dormir en casa de Moha (Tánger).</p></div>
       </div><div class="alert danger"><strong>Es un día muy exigente.</strong>Limitar Essaouira a unas tres horas y alternar conductores.</div></div>
     </article>
 
@@ -174,31 +187,30 @@
       <div class="day-body"><div class="legs"><span class="leg">Tánger → Tetuán · 1 h 05–1 h 20</span><span class="leg">Tetuán → Fnideq · 35–45 min</span><span class="leg">Fnideq → Tánger Med · 20–30 min</span></div><div class="timeline">
         <div class="event"><h4>Opción A: comer en <button class="place-link" data-place="tetouan">Tetuán</button></h4><p>Mejor para una última medina y una comida con más ambiente.</p></div>
         <div class="event"><h4>Opción B: comer en <button class="place-link" data-place="fnideq">Fnideq / Castillejos</button></h4><p>Más práctica por su proximidad al puerto.</p></div>
-        <div class="event"><h4>Ferry desde <button class="place-link" data-place="tangermed">Puerto de Tánger Med (región de Tánger)</button> hacia Algeciras</h4><p>El horario definitivo debe permitir la parada elegida y la antelación de embarque.</p></div>
+        <div class="event"><h4>Ferry desde <button class="place-link" data-place="tangermed">Puerto de Tánger Med (región de Tánger)</button> hacia Algeciras</h4><p>Elegir un horario que permita comer y llegar con la antelación necesaria. Tras desembarcar, iniciar el regreso a Lleida sin dormir en Algeciras.</p></div>
       </div><div class="day-note">La captura de 553 € muestra regreso el 1 de octubre y cuatro viajeros. Buscar el 2 de octubre y cinco viajeros.</div></div>
     </article>
 
     <article class="day">
-      <div class="day-head"><div><h3>Día 9 · Sábado 3 — Algeciras → Lleida</h3><p>Regreso a casa</p></div><span class="drive-pill">🚗 ≈ 11 h 30 min</span></div>
-      <div class="day-body"><div class="timeline"><div class="event"><h4><span class="clock">07:00–08:00</span>Salida del <button class="place-link" data-place="algeciras">Puerto de Algeciras (Algeciras)</button></h4><p>Turnos de conducción, paradas frecuentes y llegada a Lleida por la tarde-noche.</p></div></div></div>
+      <div class="day-head"><div><h3>Día 9 · Sábado 3 — Continuación Algeciras → Lleida</h3><p>Regreso directo, sin alojamiento en Algeciras</p></div><span class="drive-pill">🚗 ≈ 11 h 30 min desde el puerto</span></div>
+      <div class="day-body"><div class="timeline"><div class="event"><h4>Continuar desde el <button class="place-link" data-place="algeciras">Puerto de Algeciras (Algeciras)</button></h4><p>Empezar la carretera al desembarcar el día 2, alternar conductores, hacer paradas frecuentes y llegar a Lleida durante el día 3.</p></div></div><div class="alert warning"><strong>No reservar noche en Algeciras.</strong>Considerar que el horario real de llegada a Lleida dependerá completamente del ferry elegido y de los descansos.</div></div>
     </article>
   </section>
 
+
   <section id="mapa" class="section">
-    <div class="section-title"><h2>Mapa y ruta editables</h2><p>Seleccionar un día, añadir una parada por nombre o tocando el mapa y recalcular la línea, la distancia y el tiempo de conducción.</p></div>
-    <div class="map-layout">
-      <div class="panel map-controls">
-        <div class="map-help"><strong>¿Por qué ya no aparece el error de Google?</strong><br>Una página normal de Google Maps no se puede cargar dentro de cualquier iframe. Esta versión usa un mapa abierto dentro de la web y mantiene el botón para abrir la ruta actual en Google Maps.</div>
-        <div><strong>Seleccionar el día</strong><div class="day-select" id="daySelect"></div></div>
-        <div class="route-stats"><div class="route-stat"><span>Distancia calculada</span><strong id="routeDistance">—</strong></div><div class="route-stat"><span>Conducción estimada</span><strong id="routeDuration">—</strong></div></div>
-        <div><strong>Paradas del día</strong><div class="route-stops" id="routeStops"></div></div>
-        <div class="add-row"><input id="newStop" autocomplete="off" placeholder="Ej.: Rabat, Marruecos"><button class="btn btn-primary" id="addStop">Añadir</button></div>
-        <div class="map-actions"><button class="btn btn-outline" id="addByMap">Añadir tocando mapa</button><button class="btn btn-outline" id="resetRoute">Restablecer</button><a class="btn btn-secondary" id="openMaps" target="_blank" rel="noopener">Abrir en Google Maps</a></div>
-        <p class="map-status" id="mapStatus">Seleccionar un día para calcular la ruta.</p>
-        <p class="map-note">El ferry no se calcula como carretera. Los tiempos usan un servicio de rutas externo y pueden variar respecto al tráfico real.</p>
-        <div class="map-hotspots" id="mapHotspots"></div>
-      </div>
-      <div class="map-frame"><div id="routeMap" aria-label="Mapa dinámico de la ruta"></div></div>
+    <div class="section-title"><h2>Rutas en Google Maps</h2><p>Trayectos ordenados cronológicamente. Abrir el día correspondiente y añadir, quitar o reordenar paradas dentro de Google Maps para recalcular distancia y tiempo.</p></div>
+    <div class="route-note"><strong>No mostrar un mapa incrustado.</strong><br>Evitar fallos de carga y cálculos incompletos en GitHub Pages. Utilizar los botones siguientes; Google Maps realizará el cálculo con su información de tráfico y permitirá usar «Añadir destino».</div>
+    <div class="route-links">
+      <article class="route-link-card"><span class="status-badge logistics">25 SEP · LOGÍSTICA</span><h3>Lleida → Puerto de Algeciras</h3><div class="route-meta"><span>≈ 11 h 15–11 h 45</span><span>Salida 19:00</span></div><p>Conducción nocturna. No dormir en Algeciras; enlazar con el ferry del día 26.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Lleida%2C%20Spain&destination=Port%20of%20Algeciras%2C%20Spain&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge logistics">26 SEP · LOGÍSTICA</span><h3>Puerto de Tánger Med → Tánger</h3><div class="route-meta"><span>≈ 45–55 min</span><span>Después del ferry</span></div><p>Llegar a Tánger y dormir en casa de Moha.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Tanger%20Med%20Port%2C%20Morocco&destination=Tangier%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge">27 SEP · RUTA ACORDADA</span><h3>Tánger → Chefchaouen → Tánger</h3><div class="route-meta"><span>≈ 4 h 10 min total</span><span>Salir 07:00–07:30</span></div><p>Visitar Chefchaouen durante unas seis horas y volver a dormir en casa de Moha.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Tangier%2C%20Morocco&destination=Tangier%2C%20Morocco&waypoints=Chefchaouen%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge">28 SEP · RUTA ACORDADA</span><h3>Tánger → Marrakech</h3><div class="route-meta"><span>≈ 5 h 30–6 h</span><span>Chez Ali por la noche</span></div><p>Llegar al hotel reservado y desplazarse después a Chez Ali (Marrakech).</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Tangier%2C%20Morocco&destination=Marrakesh%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir Tánger → Marrakech</a><a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&origin=Marrakesh%2C%20Morocco&destination=Chez%20Ali%2C%20Marrakech%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir Marrakech → Chez Ali</a></article>
+      <article class="route-link-card"><span class="status-badge">29 SEP · ACTIVIDAD RESERVADA</span><h3>Marrakech → Agafay → Marrakech</h3><div class="route-meta"><span>Actividad ≈ 6 h</span><span>Recogida 16:00</span></div><p>El traslado está incluido. Utilizar el mapa solo como referencia del área.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Marrakesh%2C%20Morocco&destination=Marrakesh%2C%20Morocco&waypoints=Agafay%20Desert%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge suggestion">30 SEP · SUGERENCIA</span><h3>Recorrido urbano por Marrakech</h3><div class="route-meta"><span>Desplazamientos locales</span><span>Orden editable</span></div><p>Propuesta no acordada: Jardín Majorelle, Madrasa Ben Youssef, Palacio de la Bahía y Jemaa el-Fna.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Jardin%20Majorelle%2C%20Marrakech&destination=Jemaa%20el-Fnaa%2C%20Marrakech&waypoints=Madrasa%20Ben%20Youssef%2C%20Marrakech%7CBahia%20Palace%2C%20Marrakech&travelmode=driving" target="_blank" rel="noopener">Abrir sugerencia en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge">1 OCT · RUTA ACORDADA</span><h3>Marrakech → Essaouira → Tánger</h3><div class="route-meta"><span>≈ 9 h 45–10 h</span><span>Comer en Essaouira</span></div><p>Limitar la visita a unas tres horas y volver a dormir en casa de Moha.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Marrakesh%2C%20Morocco&destination=Tangier%2C%20Morocco&waypoints=Essaouira%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
+      <article class="route-link-card"><span class="status-badge">2 OCT · DOS OPCIONES</span><h3>Tánger → comida → Tánger Med</h3><div class="route-meta"><span>Tetuán: más visita</span><span>Fnideq: más práctico</span></div><p>Elegir una sola parada según el horario definitivo del ferry.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Tangier%2C%20Morocco&destination=Tanger%20Med%20Port%2C%20Morocco&waypoints=Tetouan%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Opción Tetuán</a><a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&origin=Tangier%2C%20Morocco&destination=Tanger%20Med%20Port%2C%20Morocco&waypoints=Fnideq%2C%20Morocco&travelmode=driving" target="_blank" rel="noopener">Opción Fnideq / Castillejos</a></article>
+      <article class="route-link-card"><span class="status-badge logistics">2–3 OCT · REGRESO</span><h3>Puerto de Algeciras → Lleida</h3><div class="route-meta"><span>≈ 11 h 30 min</span><span>Sin noche en Algeciras</span></div><p>Comenzar la carretera al desembarcar y llegar a Lleida el día 3.</p><a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&origin=Port%20of%20Algeciras%2C%20Spain&destination=Lleida%2C%20Spain&travelmode=driving" target="_blank" rel="noopener">Abrir y editar en Google Maps</a></article>
     </div>
   </section>
 
@@ -208,9 +220,9 @@
       <article class="booking"><span class="tag">RESERVADO</span><h3>Hotel (Marrakech)</h3><p>Del 28 de septiembre al 1 de octubre: tres noches para cinco personas.</p><ul><li>Coste total: 166 €.</li><li>33,20 € por persona.</li><li>Confirmar parking o punto de descarga de equipaje.</li></ul></article>
       <article class="booking"><span class="tag">RESERVADO</span><h3>Desierto de Agafay (región de Marrakech) · 29/09, 16:00</h3><p>Actividad de aproximadamente seis horas.</p><ul><li>Furgoneta con aire acondicionado.</li><li>1 h de quad, dos personas por quad.</li><li>20 min de camello.</li><li>Cena, espectáculo, música, fuego, té y agua.</li><li>Propinas no incluidas.</li></ul><p class="fineprint">Importe pagado conocido: 75 €. No se publican los códigos de reserva ni los datos personales.</p></article>
       <article class="booking"><span class="tag pending">RESERVAR</span><h3>Chez Ali (Marrakech) · 28/09</h3><p>Cena y espectáculo Fantasia. Presupuesto del grupo: aproximadamente 60 € por persona, 300 € en total.</p><div class="booking-actions"><a class="btn btn-primary" href="https://chez-ali.ma/reservation/" target="_blank" rel="noopener">Reserva oficial</a><a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Chez+Ali+Marrakech" target="_blank" rel="noopener">Google Maps</a></div></article>
-      <article class="booking"><span class="tag pending">RESERVAR</span><h3>Jardín Majorelle (Marrakech)</h3><p>La entrada es por franja horaria. Conviene comprarla antes del viaje.</p><div class="booking-actions"><a class="btn btn-primary" href="https://tickets.jardinmajorelle.com/" target="_blank" rel="noopener">Entradas oficiales</a></div></article>
-      <article class="booking"><span class="tag pending">PRIORIDAD ALTA</span><h3>Ferry Algeciras ↔ Tánger Med</h3><p>Referencia recibida: 553 € ida y vuelta para cuatro pasajeros y un vehículo.</p><ul><li>El grupo es de cinco: falta añadir un pasajero.</li><li>La captura vuelve el 1/10, pero la ruta necesita volver el 2/10.</li><li>La salida a las 08:00 es muy justa saliendo de Lleida a las 19:00.</li></ul><img class="ferry-shot" src="assets/ferry-referencia.jpg" alt="Captura de referencia del precio del ferry"><div class="booking-actions"><a class="btn btn-primary" href="https://www.navieraarmas.com/es/rutas/ALG-PTM" target="_blank" rel="noopener">Consultar Armas</a></div></article>
-      <article class="booking"><span class="tag pending">PENDIENTE</span><h3>Alojamientos restantes</h3><p>Faltan al menos las noches de Tánger y Algeciras. Priorizar parking, recepción tardía y cancelación flexible.</p></article>
+      <article class="booking"><span class="tag pending">SUGERENCIA</span><h3>Jardín Majorelle (Marrakech)</h3><p>No forma parte del plan acordado. Valorar su visita el 29 por la mañana o el 30. Comprar una franja horaria solo después de decidir ir.</p><div class="booking-actions"><a class="btn btn-primary" href="https://tickets.jardinmajorelle.com/" target="_blank" rel="noopener">Consultar entradas</a></div></article>
+      <article class="booking"><span class="tag pending">PRIORIDAD ALTA</span><h3>Ferry Algeciras ↔ Tánger Med</h3><p>Referencia recibida: 553 € ida y vuelta para cuatro pasajeros y un vehículo.</p><ul><li>El grupo es de cinco: falta añadir un pasajero.</li><li>La captura vuelve el 1/10, pero la ruta necesita volver el 2/10.</li><li>La salida a las 08:00 es muy justa saliendo de Lleida a las 19:00.</li></ul><img class="ferry-shot" src="assets/ferry-referencia.jpg" alt="Captura de referencia del precio del ferry"><div class="booking-actions"><a class="btn btn-primary" href="https://www.navieraarmas.com/es/rutas/ALG-PTM" target="_blank" rel="noopener">Consultar ferry</a></div></article>
+      <article class="booking"><span class="tag">ALOJAMIENTO DEFINIDO</span><h3>Noches del viaje</h3><ul><li>Dormir en casa de Moha (Tánger): noches del 26, 27 y 1.</li><li>Hotel reservado (Marrakech): noches del 28, 29 y 30.</li><li>No dormir en Algeciras: continuar hacia Lleida tras el ferry de regreso.</li></ul></article>
     </div>
   </section>
 
@@ -271,26 +283,25 @@
       <a href="https://www.benelux.zurich.com/points-of-contact" target="_blank" rel="noopener">Zurich · contacto Booking.com para siniestros</a>
       <a href="https://www.zurich.es/telefonos-contacto" target="_blank" rel="noopener">Zurich España · teléfonos de contacto</a>
       <a href="https://developers.google.com/maps/documentation/urls/get-started" target="_blank" rel="noopener">Google Maps URLs · abrir rutas desde la web</a>
-      <a href="https://www.jardinmajorelle.com/" target="_blank" rel="noopener">Jardín Majorelle · web oficial</a>
+      <a href="https://www.jardinmajorelle.com/" target="_blank" rel="noopener">Jardín Majorelle · sugerencia y web oficial</a>
       <a href="https://chez-ali.ma/reservation/" target="_blank" rel="noopener">Chez Ali · reserva</a>
     </div>
   </section>
 </main>
 
-<footer>Hecho para los Habibis · versión 4 preparada para GitHub Pages · mapa dinámico sin clave · no publicar códigos de reserva, códigos de barras ni documentos personales.</footer>
+<footer>Hecho para los Habibis · versión 5 preparada para GitHub Pages · rutas externas fiables en Google Maps · no publicar códigos de reserva, códigos de barras ni documentos personales.</footer>
 
 <dialog id="placeModal">
   <div class="modal-head"><h3 id="modalTitle"></h3><button class="close-modal" id="closeModal" aria-label="Cerrar">×</button></div>
-  <div class="modal-body"><p id="modalWhy"></p><h4>Lo más guapo</h4><ul id="modalHighlights"></ul><h4>Tiempo en esta ruta</h4><p id="modalTime"></p><h4>Consejo práctico</h4><p id="modalTip"></p><div class="modal-actions"><a class="btn btn-primary" id="modalMaps" target="_blank" rel="noopener">Abrir en Maps</a></div></div>
+  <div class="modal-body"><span class="status-badge" id="modalStatus"></span><p id="modalWhy"></p><h4>Lo más guapo</h4><ul id="modalHighlights"></ul><h4>Tiempo en esta ruta</h4><p id="modalTime"></p><h4>Qué probar o dónde parar</h4><p id="modalEat"></p><h4>Aparcamiento y movilidad</h4><p id="modalParking"></p><h4>Consejo práctico</h4><p id="modalTip"></p><div class="modal-actions"><a class="btn btn-primary" id="modalMaps" target="_blank" rel="noopener">Abrir en Maps</a></div></div>
 </dialog>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 const places={
   lleida:{name:'Lleida',emoji:'🏠',why:'Punto de salida y llegada del viaje.',high:['Salida a las 19:00','Turnos de conducción','Copias offline de reservas'],time:'Salida el 25 de septiembre y regreso el 3 de octubre.',tip:'Salir descansados y con el depósito lleno.',query:'Lleida, Spain',coords:[41.6176,0.6200]},
-  algeciras:{name:'Puerto de Algeciras (Algeciras)',emoji:'⛴️',why:'Puerto español para embarcar el coche hacia Tánger Med.',high:['Terminal de pasajeros','Check-in con vehículo','Acceso directo desde la A-7'],time:'Llegada prevista la mañana del 26 y regreso el 2.',tip:'El ferry de las 08:00 deja un margen insuficiente saliendo de Lleida a las 19:00.',query:'Port of Algeciras, Spain',coords:[36.1307,-5.4382]},
+  algeciras:{name:'Puerto de Algeciras (Algeciras)',emoji:'⛴️',why:'Puerto español para embarcar el coche hacia Tánger Med.',high:['Terminal de pasajeros','Check-in con vehículo','Acceso directo desde la A-7'],time:'Tránsito la mañana del 26 y tras el ferry de vuelta el 2; sin dormir en Algeciras.',tip:'No reservar alojamiento; esperar al ferry de ida y comenzar el regreso a Lleida al desembarcar de vuelta.',query:'Port of Algeciras, Spain',coords:[36.1307,-5.4382]},
   tangermed:{name:'Puerto de Tánger Med (región de Tánger)',emoji:'⚓',why:'Puerto de entrada y salida de Marruecos cuando se viaja con coche.',high:['Control fronterizo','Zona de embarque','Acceso a autopista'],time:'Tránsito el 26 y el 2.',tip:'Llevar pasaportes, documentación del vehículo, seguro y billetes accesibles.',query:'Tanger Med Port, Morocco',coords:[35.8824,-5.5006]},
-  tanger:{name:'Tánger',emoji:'🌊',why:'Ciudad de entrada con medina, vistas al Estrecho y mezcla cultural.',high:['Kasbah (Tánger)','Grand Socco (Tánger)','Café Hafa (Tánger)','Medina (Tánger)'],time:'Tarde del 26, noche del 27, llegada tardía el 1 y salida el 2.',tip:'Aparcar fuera de la medina y moverse a pie o en petit taxi.',query:'Tangier, Morocco',coords:[35.7595,-5.8340]},
+  tanger:{name:'Tánger',emoji:'🌊',why:'Ciudad de entrada con medina, vistas al Estrecho y mezcla cultural.',high:['Kasbah (Tánger)','Grand Socco (Tánger)','Café Hafa (Tánger)','Medina (Tánger)'],time:'Visita el 26; dormir en casa de Moha las noches del 26, 27 y 1; salir el 2 hacia el ferry.',tip:'Aparcar fuera de la medina y moverse a pie o en petit taxi.',query:'Tangier, Morocco',coords:[35.7595,-5.8340]},
   kasbahtanger:{name:'Kasbah (Tánger)',emoji:'🏰',why:'La parte alta y amurallada de la medina, con callejones y vistas al Estrecho.',high:['Museo de la Kasbah','Bab el-Assa','Miradores'],time:'Entre 1 y 2 horas el día 26 si el ferry llega pronto.',tip:'Combinarla caminando con la medina y Grand Socco.',query:'Kasbah Tangier, Morocco',coords:[35.7880,-5.8127]},
   grandsocco:{name:'Grand Socco (Tánger)',emoji:'🧺',why:'Plaza de transición entre la ciudad moderna y la medina.',high:['Ambiente local','Entrada a la medina','Mercado cercano'],time:'30–45 minutos dentro del paseo del día 26.',tip:'Es un buen punto de inicio para entrar a pie a la medina.',query:'Grand Socco Tangier, Morocco',coords:[35.7850,-5.8132]},
   cafehafa:{name:'Café Hafa (Tánger)',emoji:'☕',why:'Terrazas escalonadas con vistas al mar y al Estrecho.',high:['Té a la menta','Vistas','Atardecer'],time:'45–60 minutos si el horario del ferry lo permite.',tip:'Puede llenarse al atardecer.',query:'Cafe Hafa Tangier, Morocco',coords:[35.7914,-5.8267]},
@@ -298,7 +309,7 @@ const places={
   outa:{name:'Plaza Outa el-Hammam (Chefchaouen)',emoji:'🟦',why:'Centro social de la medina azul, rodeado de terrazas y la Kasbah.',high:['Terrazas','Kasbah','Ambiente de la medina'],time:'30–60 minutos durante la visita del 27.',tip:'Buena zona para hacer una pausa, pero los restaurantes más turísticos suelen ser más caros.',query:'Place Outa el Hammam Chefchaouen',coords:[35.1686,-5.2638]},
   kasbahchef:{name:'Kasbah (Chefchaouen)',emoji:'🏯',why:'Fortaleza histórica con jardines y vistas sobre la plaza principal.',high:['Jardín interior','Torre','Museo'],time:'45–60 minutos.',tip:'Entrar temprano para evitar grupos.',query:'Kasbah Chefchaouen',coords:[35.1687,-5.2635]},
   raselmaa:{name:'Ras El Maa (Chefchaouen)',emoji:'💧',why:'Manantial y zona de paseo en el extremo de la medina.',high:['Agua y lavaderos','Puentes','Inicio del paseo al mirador'],time:'30–45 minutos.',tip:'Desde aquí se puede seguir hacia la Mezquita Española si hay tiempo.',query:'Ras El Maa Chefchaouen',coords:[35.1717,-5.2577]},
-  marrakech:{name:'Marrakech',emoji:'🕌',why:'Base principal del viaje: zocos, palacios, jardines y Jemaa el-Fna.',high:['Jemaa el-Fna (Marrakech)','Madrasa Ben Youssef (Marrakech)','Palacio de la Bahía (Marrakech)','Jardín Majorelle (Marrakech)'],time:'Desde la tarde del 28 hasta primera hora del 1.',tip:'No entrar con el coche en la medina sin coordinar el parking.',query:'Marrakesh, Morocco',coords:[31.6295,-7.9811]},
+  marrakech:{name:'Marrakech',emoji:'🕌',why:'Base principal del viaje durante tres noches, con medina, zocos, arquitectura y ambiente nocturno.',high:['Jemaa el-Fna (Marrakech)','Madrasa Ben Youssef (Marrakech)','Palacio de la Bahía (Marrakech)','Jardín Majorelle (Marrakech)'],time:'Desde la tarde del 28 hasta primera hora del 1.',tip:'No entrar con el coche en la medina sin coordinar el parking.',query:'Marrakesh, Morocco',coords:[31.6295,-7.9811]},
   chezali:{name:'Chez Ali (Marrakech)',emoji:'🐎',why:'Cena-espectáculo Fantasia con caballos, música y grupos folclóricos.',high:['Cena marroquí','Espectáculo ecuestre','Decorado nocturno'],time:'Noche del 28; calcular 3–4 horas con traslados.',tip:'Reservar para cinco y confirmar si incluye transporte.',query:'Chez Ali Marrakech, Morocco',coords:[31.7009,-8.0017]},
   agafay:{name:'Desierto de Agafay (región de Marrakech)',emoji:'🏜️',why:'Paisaje pedregoso próximo a Marrakech, ideal para actividades y atardecer.',high:['Quad','Camello','Atardecer','Cena y fuego'],time:'29 de septiembre, 16:00–22:00 aproximadamente.',tip:'Calzado cerrado, gafas, pañuelo para el polvo y algo de abrigo.',query:'Agafay Desert, Morocco',coords:[31.4386,-8.1907]},
   majorelle:{name:'Jardín Majorelle (Marrakech)',emoji:'🌵',why:'Jardín botánico de colores intensos ligado a Jacques Majorelle e Yves Saint Laurent.',high:['Azul Majorelle','Cactus','Museo bereber'],time:'1–1,5 horas el 29 o el 30.',tip:'Comprar la entrada por franja horaria y llegar con antelación.',query:'Jardin Majorelle Marrakech',coords:[31.6417,-8.0032]},
@@ -313,78 +324,36 @@ const places={
   fnideq:{name:'Fnideq / Castillejos',emoji:'🐟',why:'Parada práctica junto al Mediterráneo y cerca de Tánger Med.',high:['Paseo marítimo (Fnideq)','Pescado','Proximidad al puerto'],time:'Opción de comida de 1–1,5 horas el 2.',tip:'Es la alternativa segura si el ferry sale pronto.',query:'Fnideq, Morocco',coords:[35.8490,-5.3575]}
 };
 
-const placeOrder=['tanger','chefchaouen','marrakech','agafay','essaouira','tetouan','fnideq','tangermed','algeciras'];
+const details={
+  tanger:{status:'Parada acordada',type:'confirmed',eat:'Probar pescado, brochetas, tajín y té a la menta; elegir según la hora real de llegada.',parking:'Dejar el coche fuera de la medina y entrar a pie o en petit taxi.'},
+  chefchaouen:{status:'Parada acordada',type:'confirmed',eat:'Probar tajín, queso de cabra o cabrito. Bab Ssour es una opción mencionada en la ruta.',parking:'Aparcar fuera de la medina; el centro histórico se recorre caminando.'},
+  marrakech:{status:'Base reservada',type:'confirmed',eat:'Probar tanjia marrakchia, pastilla y cocina de los zocos. Confirmar precios antes de pedir en zonas muy turísticas.',parking:'Coordinar el parking con el hotel; evitar entrar en coche por calles estrechas de la medina.'},
+  chezali:{status:'Plan acordado · pendiente de reserva',type:'confirmed',eat:'Cena tradicional incluida o asociada al espectáculo; confirmar menú, bebidas y transporte.',parking:'Confirmar si la reserva incluye recogida y regreso al hotel.'},
+  agafay:{status:'Actividad reservada',type:'confirmed',eat:'Cena, té y agua incluidos según la reserva mostrada; propinas no incluidas.',parking:'No necesario si se utiliza la recogida incluida. Confirmar el punto exacto por WhatsApp.'},
+  majorelle:{status:'Sugerencia',type:'suggestion',eat:'Combinar con una pausa en Guéliz si se decide visitar.',parking:'Utilizar taxi o aparcamiento de pago cercano; reservar entrada por franja horaria.'},
+  bahia:{status:'Sugerencia',type:'suggestion',eat:'Combinar con comida en la zona sur de la medina.',parking:'Llegar a pie o en taxi; evitar buscar aparcamiento junto a la entrada.'},
+  benyoussef:{status:'Sugerencia',type:'suggestion',eat:'Combinar con los zocos y una pausa en una terraza de la medina.',parking:'Acceder caminando desde un aparcamiento exterior de la medina.'},
+  jemaa:{status:'Sugerencia',type:'suggestion',eat:'Puestos de comida y terrazas; preguntar precios y revisar la cuenta antes de pagar.',parking:'Llegar caminando o en taxi; utilizar aparcamientos exteriores de la medina.'},
+  essaouira:{status:'Parada acordada',type:'confirmed',eat:'Comer pescado o marisco; acordar precio y preparación antes de pedir.',parking:'Aparcar cerca del puerto o Bab Marrakech y controlar la hora de salida hacia Tánger.'},
+  tetouan:{status:'Opción de regreso',type:'confirmed',eat:'Probar pescado, pastilla o cocina del norte si el ferry deja margen.',parking:'Aparcar fuera de la medina y limitar la visita para no comprometer el embarque.'},
+  fnideq:{status:'Opción de regreso',type:'confirmed',eat:'Pescado y marisco; opción más práctica por la cercanía a Tánger Med.',parking:'Buscar aparcamiento cerca del paseo marítimo y salir con margen hacia el puerto.'},
+  tangermed:{status:'Logística',type:'logistics',eat:'Llevar agua y algo de comida por posibles esperas en frontera y embarque.',parking:'Seguir las indicaciones de la terminal y tener toda la documentación a mano.'},
+  algeciras:{status:'Logística',type:'logistics',eat:'Prever comida o desayuno cerca del puerto según el tiempo de espera.',parking:'Entrar directamente en la terminal; no reservar alojamiento.'}
+};
+Object.entries(details).forEach(([id,x])=>Object.assign(places[id],x));
+const suggestionIds=new Set(['majorelle','bahia','benyoussef','koutoubia','jemaa','kasbahtanger','grandsocco','cafehafa','outa','kasbahchef','raselmaa']);
+Object.entries(places).forEach(([id,p])=>{if(!p.status){p.status=suggestionIds.has(id)?'Sugerencia':'Información de la ruta';p.type=suggestionIds.has(id)?'suggestion':'confirmed';}if(!p.eat)p.eat='Elegir una parada sencilla según el horario disponible.';if(!p.parking)p.parking='Comprobar el acceso y el aparcamiento en Google Maps antes de llegar.';});
+
+const placeOrder=['tanger','chefchaouen','marrakech','chezali','agafay','majorelle','bahia','benyoussef','jemaa','essaouira','tetouan','fnideq','tangermed','algeciras'];
 const placeGrid=document.getElementById('placeGrid');
-placeGrid.innerHTML=placeOrder.map(id=>{const p=places[id];return `<article class="place-card"><div class="emoji">${p.emoji}</div><h3>${p.name}</h3><p>${p.why}</p><div class="chip-row">${p.high.slice(0,3).map(h=>`<span class="chip">${h}</span>`).join('')}</div><button class="btn btn-outline place-link" data-place="${id}" style="margin-top:14px">Ver ficha</button></article>`}).join('');
+function badgeClass(p){return p.type==='suggestion'?'status-badge suggestion':p.type==='logistics'?'status-badge logistics':'status-badge';}
+placeGrid.innerHTML=placeOrder.map(id=>{const p=places[id];return `<article class="place-card"><span class="${badgeClass(p)}">${p.status}</span><div class="emoji">${p.emoji}</div><h3>${p.name}</h3><p>${p.why}</p><div class="chip-row">${p.high.slice(0,4).map(h=>`<span class="chip">${h}</span>`).join('')}</div><div class="place-details"><div><strong>Tiempo previsto</strong>${p.time}</div><div><strong>Qué probar o dónde parar</strong>${p.eat}</div><div><strong>Aparcamiento / movilidad</strong>${p.parking}</div><div><strong>Consejo</strong>${p.tip}</div></div><button class="btn btn-outline place-link" data-place="${id}" style="margin-top:14px">Abrir ficha completa</button></article>`}).join('');
 
 const modal=document.getElementById('placeModal');
-function openPlace(id){const p=places[id];if(!p)return;document.getElementById('modalTitle').textContent=`${p.emoji} ${p.name}`;document.getElementById('modalWhy').textContent=p.why;document.getElementById('modalHighlights').innerHTML=p.high.map(x=>`<li>${x}</li>`).join('');document.getElementById('modalTime').textContent=p.time;document.getElementById('modalTip').textContent=p.tip;document.getElementById('modalMaps').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`;modal.showModal();}
+function openPlace(id){const p=places[id];if(!p)return;document.getElementById('modalTitle').textContent=`${p.emoji} ${p.name}`;const status=document.getElementById('modalStatus');status.textContent=p.status;status.className=badgeClass(p);document.getElementById('modalWhy').textContent=p.why;document.getElementById('modalHighlights').innerHTML=p.high.map(x=>`<li>${x}</li>`).join('');document.getElementById('modalTime').textContent=p.time;document.getElementById('modalEat').textContent=p.eat;document.getElementById('modalParking').textContent=p.parking;document.getElementById('modalTip').textContent=p.tip;document.getElementById('modalMaps').href=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.query)}`;modal.showModal();}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-place]');if(b){e.preventDefault();openPlace(b.dataset.place)}});
-document.getElementById('closeModal').onclick=()=>modal.close();modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
-
-const makeStop=(id,label=null)=>({id,label:label||places[id].name,lat:places[id].coords[0],lng:places[id].coords[1],query:places[id].query});
-const customStop=(label,lat,lng)=>({id:null,label,lat,lng,query:label});
-const routeDays={
-  '25':{label:'25 sep',title:'Lleida → Algeciras',stops:[makeStop('lleida'),makeStop('algeciras')],hot:['lleida','algeciras']},
-  '26':{label:'26 sep',title:'Tánger Med → Tánger',stops:[makeStop('tangermed'),makeStop('tanger')],hot:['tangermed','tanger'],note:'El ferry Algeciras → Tánger Med se gestiona fuera del cálculo por carretera.'},
-  '27':{label:'27 sep',title:'Tánger → Chefchaouen → Tánger',stops:[makeStop('tanger'),makeStop('chefchaouen'),makeStop('tanger')],hot:['tanger','chefchaouen']},
-  '28':{label:'28 sep',title:'Tánger → Marrakech → Chez Ali',stops:[makeStop('tanger'),makeStop('marrakech'),makeStop('chezali'),makeStop('marrakech')],hot:['tanger','marrakech','chezali']},
-  '29':{label:'29 sep',title:'Marrakech → Agafay → Marrakech',stops:[makeStop('marrakech'),makeStop('agafay'),makeStop('marrakech')],hot:['marrakech','agafay']},
-  '30':{label:'30 sep',title:'Marrakech urbano',stops:[makeStop('majorelle'),makeStop('benyoussef'),makeStop('bahia'),makeStop('jemaa')],hot:['majorelle','benyoussef','bahia','jemaa']},
-  '1':{label:'1 oct',title:'Marrakech → Essaouira → Tánger',stops:[makeStop('marrakech'),makeStop('essaouira'),makeStop('tanger')],hot:['marrakech','essaouira','tanger']},
-  '2':{label:'2 oct',title:'Tánger → Tetuán → Fnideq → Tánger Med',stops:[makeStop('tanger'),makeStop('tetouan'),makeStop('fnideq'),makeStop('tangermed')],hot:['tanger','tetouan','fnideq','tangermed'],note:'El ferry Tánger Med → Algeciras se gestiona fuera del cálculo por carretera.'},
-  '3':{label:'3 oct',title:'Algeciras → Lleida',stops:[makeStop('algeciras'),makeStop('lleida')],hot:['algeciras','lleida']}
-};
-const pristine=JSON.parse(JSON.stringify(routeDays));
-let activeDay='25', routeLayer=null, markers=[], addByMapMode=false, routeAbort=null;
-const daySelect=document.getElementById('daySelect'),routeStops=document.getElementById('routeStops'),newStop=document.getElementById('newStop'),openMaps=document.getElementById('openMaps'),mapHotspots=document.getElementById('mapHotspots'),routeDistance=document.getElementById('routeDistance'),routeDuration=document.getElementById('routeDuration'),mapStatus=document.getElementById('mapStatus'),addByMap=document.getElementById('addByMap');
-daySelect.innerHTML=Object.entries(routeDays).map(([k,d])=>`<button data-day="${k}">${d.label}</button>`).join('');
-
-const map=L.map('routeMap',{zoomControl:true}).setView([34.5,-4.5],5);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
-
-function esc(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-function formatDuration(seconds){const mins=Math.round(seconds/60);const h=Math.floor(mins/60),m=mins%60;return h?`${h} h ${m?m+' min':''}`:`${m} min`;}
-function formatDistance(meters){return meters>=1000?`${(meters/1000).toFixed(meters>100000?0:1)} km`:`${Math.round(meters)} m`;}
-function directionsLink(stops){if(stops.length<2)return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stops[0]?.query||'Morocco')}`;const origin=stops[0].query||`${stops[0].lat},${stops[0].lng}`,destination=stops.at(-1).query||`${stops.at(-1).lat},${stops.at(-1).lng}`,waypoints=stops.slice(1,-1).map(s=>s.query||`${s.lat},${s.lng}`).join('|');return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&waypoints=${encodeURIComponent(waypoints)}&travelmode=driving`;}
-function clearMap(){if(routeLayer){map.removeLayer(routeLayer);routeLayer=null}markers.forEach(m=>map.removeLayer(m));markers=[];}
-function markerPopup(stop,i){const p=stop.id&&places[stop.id];const title=p?`${p.emoji} ${p.name}`:stop.label;const body=p?`<p>${esc(p.why)}</p><button class="btn btn-outline" onclick="openPlace('${stop.id}')">Abrir ficha</button>`:`<p>Parada añadida manualmente.</p>`;return `<strong>${i+1}. ${esc(title)}</strong>${body}`;}
-async function calculateRoute(){
-  const d=routeDays[activeDay],stops=d.stops;clearMap();
-  markers=stops.map((s,i)=>L.marker([s.lat,s.lng],{title:s.label}).addTo(map).bindPopup(markerPopup(s,i)));
-  openMaps.href=directionsLink(stops);
-  if(stops.length<2){routeDistance.textContent='—';routeDuration.textContent='—';mapStatus.textContent='Añadir al menos dos paradas.';return;}
-  const coords=stops.map(s=>`${s.lng},${s.lat}`).join(';');
-  if(routeAbort)routeAbort.abort(); routeAbort=new AbortController();
-  mapStatus.textContent='Calculando ruta…';
-  try{
-    const r=await fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson&steps=false`,{signal:routeAbort.signal});
-    if(!r.ok)throw new Error('Servicio de rutas no disponible');
-    const data=await r.json(); if(!data.routes?.length)throw new Error('No se encontró una ruta por carretera');
-    const result=data.routes[0]; routeLayer=L.geoJSON(result.geometry,{style:{color:'#a13c24',weight:6,opacity:.85}}).addTo(map);map.fitBounds(routeLayer.getBounds(),{padding:[28,28]});
-    routeDistance.textContent=formatDistance(result.distance);routeDuration.textContent=formatDuration(result.duration);mapStatus.textContent=`Ruta recalculada para ${d.title}.`;
-  }catch(err){if(err.name==='AbortError')return;const bounds=L.latLngBounds(stops.map(s=>[s.lat,s.lng]));L.polyline(stops.map(s=>[s.lat,s.lng]),{color:'#a13c24',dashArray:'8 8',weight:4}).addTo(map);map.fitBounds(bounds,{padding:[28,28]});routeDistance.textContent='No disponible';routeDuration.textContent='No disponible';mapStatus.textContent=`${err.message}. Se muestra una línea orientativa.`;}
-}
-function renderMap(){
-  [...daySelect.children].forEach(b=>b.classList.toggle('active',b.dataset.day===activeDay));
-  const d=routeDays[activeDay];
-  routeStops.innerHTML=d.stops.map((s,i)=>`<div class="route-stop"><span class="num">${i+1}</span><div class="stop-copy"><strong>${esc(s.label)}</strong><small>${s.id?'Parada del itinerario':'Parada personalizada'}</small></div><div class="move"><button class="icon-btn" data-action="up" data-index="${i}" title="Subir">↑</button><button class="icon-btn" data-action="down" data-index="${i}" title="Bajar">↓</button><button class="icon-btn" data-action="remove" data-index="${i}" title="Eliminar">×</button></div></div>`).join('');
-  mapHotspots.innerHTML=d.hot.map(id=>`<button data-place="${id}">${places[id].emoji} ${places[id].name}</button>`).join('')+(d.note?`<span class="map-note">${d.note}</span>`:'');
-  calculateRoute(); setTimeout(()=>map.invalidateSize(),80);
-}
-async function geocode(query){
-  const url=`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&countrycodes=ma,es&q=${encodeURIComponent(query)}`;
-  const r=await fetch(url,{headers:{'Accept-Language':'es'}});if(!r.ok)throw new Error('No se pudo buscar la parada');const results=await r.json();if(!results.length)throw new Error('No se encontró ese lugar');const x=results[0];return customStop(x.display_name,parseFloat(x.lat),parseFloat(x.lon));
-}
-async function reverseGeocode(lat,lng){try{const r=await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&zoom=16`,{headers:{'Accept-Language':'es'}});const x=await r.json();return x.display_name||`Parada ${lat.toFixed(5)}, ${lng.toFixed(5)}`;}catch{return `Parada ${lat.toFixed(5)}, ${lng.toFixed(5)}`;}}
-daySelect.addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(!b)return;activeDay=b.dataset.day;renderMap()});
-routeStops.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b)return;const arr=routeDays[activeDay].stops,i=+b.dataset.index,a=b.dataset.action;if(a==='remove'&&arr.length>2)arr.splice(i,1);if(a==='up'&&i>0)[arr[i-1],arr[i]]=[arr[i],arr[i-1]];if(a==='down'&&i<arr.length-1)[arr[i+1],arr[i]]=[arr[i],arr[i+1]];renderMap()});
-document.getElementById('addStop').onclick=async()=>{const value=newStop.value.trim();if(!value)return;mapStatus.textContent='Buscando parada…';try{const stop=await geocode(value);const arr=routeDays[activeDay].stops;arr.splice(Math.max(1,arr.length-1),0,stop);newStop.value='';renderMap();}catch(err){mapStatus.textContent=err.message;}};
-newStop.addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addStop').click()});
-addByMap.onclick=()=>{addByMapMode=!addByMapMode;addByMap.classList.toggle('btn-primary',addByMapMode);map.getContainer().style.cursor=addByMapMode?'crosshair':'';mapStatus.textContent=addByMapMode?'Tocar el mapa para insertar una parada antes del destino final.':'Modo de añadir por mapa desactivado.';};
-map.on('click',async e=>{if(!addByMapMode)return;addByMapMode=false;addByMap.classList.remove('btn-primary');map.getContainer().style.cursor='';mapStatus.textContent='Identificando la parada…';const label=await reverseGeocode(e.latlng.lat,e.latlng.lng);const arr=routeDays[activeDay].stops;arr.splice(Math.max(1,arr.length-1),0,customStop(label,e.latlng.lat,e.latlng.lng));renderMap();});
-document.getElementById('resetRoute').onclick=()=>{routeDays[activeDay]=JSON.parse(JSON.stringify(pristine[activeDay]));renderMap()};
-renderMap();
+document.getElementById('closeModal').addEventListener('click',()=>modal.close());
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
 </script>
 </body>
 </html>

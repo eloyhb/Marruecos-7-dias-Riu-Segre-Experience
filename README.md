@@ -24,3 +24,14 @@ El mapa necesita conexión a Internet para cargar teselas, buscar lugares y calc
 ## Privacidad
 
 No subir capturas con nombres, códigos de reserva, códigos de barras, pasaportes o datos personales. La web y sus archivos serán públicos.
+
+
+## Cambios de la versión 5
+
+- Eliminación del mapa incrustado para evitar fallos de carga y de cálculo.
+- Rutas ordenadas del 25 de septiembre al 3 de octubre con botones externos de Google Maps.
+- Posibilidad de añadir y reordenar paradas directamente dentro de Google Maps.
+- Indicación explícita de los planes que son sugerencias.
+- Botón «Consultar ferry».
+- Fichas rápidas ampliadas con tiempo, comida, aparcamiento y consejo práctico.
+- Alojamiento en casa de Moha en Tánger y regreso sin dormir en Algeciras.
