@@ -13,7 +13,7 @@ Ruta actualizada del 25 de septiembre al 3 de octubre de 2026.
 4. Confirmar con **Commit changes** en la rama `main`.
 5. Comprobar **Settings → Pages → Deploy from a branch → main → / (root)**.
 6. Esperar a que **Actions → Pages build and deployment** aparezca en verde.
-7. Abrir la web con `?v=8` al final para evitar una copia antigua de la caché.
+7. Abrir la web con `?v=9` al final para evitar una copia antigua de la caché.
 
 ## Cambios principales
 
@@ -31,3 +31,10 @@ No subir capturas con nombres, códigos de reserva, códigos de barras, pasaport
 ## Cambio de la versión 8
 
 La fotografía de cabecera se muestra completa en pantallas móviles, con el título situado debajo para evitar recortes.
+
+
+## Cambio de la versión 9
+
+- Trasladar la parada opcional en Tetuán o Fnideq/Castillejos al regreso desde Chefchaouen del 27 de septiembre.
+- Dejar el 2 de octubre como trayecto directo Tánger → Tánger Med + ferry.
+- Indicar que Moha ha pagado los 166 € del hotel (Marrakech) y los 75 € de Agafay.
