@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#7c341d" />
+  <meta name="description" content="Ruta por Marruecos desde Lleida en coche: opción completa, ruta esencial y planificador personalizable con tiempos, visitas, restaurantes, reservas y aparcamientos." />
+  <title>Marruecos desde Lleida · Ruta Habibis</title>
+  <style>
+    :root{
+      --ink:#2c211c; --muted:#725f54; --paper:#f6efe3; --card:#fffdf9;
+      --terracotta:#a34825; --terracotta2:#743018; --sand:#e9c889; --sand2:#f3e1bc;
+      --blue:#4f8192; --blue-soft:#e1eff2; --green:#4f765d; --line:#e5d7c4;
+      --good:#e2f2e6; --warn:#fff0c7; --bad:#f7dcd6; --shadow:0 18px 46px rgba(75,43,27,.13);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+    a{color:inherit}
+    button,input{font:inherit}
+    .hero{min-height:84vh;position:relative;display:grid;align-items:end;overflow:hidden;background:#332017}
+    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(33,15,8,.05),rgba(33,15,8,.25) 38%,rgba(33,15,8,.92)),url('assets/hero-habibis.jpg');background-size:cover;background-position:center 39%}
+    .hero::after{content:"";position:absolute;inset:auto 0 0;height:18%;background:linear-gradient(transparent,var(--paper))}
+    .hero-inner{position:relative;z-index:1;max-width:1240px;width:100%;margin:0 auto;padding:72px 26px 90px;color:#fff}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.38);border-radius:999px;background:rgba(36,18,10,.34);backdrop-filter:blur(10px);font-size:.86rem;font-weight:850;letter-spacing:.04em}
+    h1{font-size:clamp(2.7rem,7.6vw,6.6rem);line-height:.91;letter-spacing:-.065em;margin:22px 0 18px;max-width:980px;text-wrap:balance}
+    .hero p{font-size:clamp(1rem,2vw,1.25rem);max-width:780px;margin:0;color:#fff7ef;text-shadow:0 1px 12px rgba(0,0,0,.3)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:27px}
+    .hero-meta span{padding:9px 12px;border-radius:13px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(9px);font-weight:760}
+    .nav-wrap{position:sticky;top:0;z-index:40;background:rgba(246,239,227,.94);backdrop-filter:blur(15px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1240px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .nav strong{white-space:nowrap}
+    .tabs{display:flex;flex-wrap:wrap;gap:8px}
+    .tab-btn,.btn{border:0;border-radius:13px;padding:11px 15px;font-weight:850;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:.92rem}
+    .tab-btn{background:#fff;border:1px solid var(--line);color:var(--terracotta2)}
+    .tab-btn.active{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+    .btn-primary{background:var(--terracotta);color:white}.btn-secondary{background:var(--blue-soft);color:#244b58}.btn-outline{background:white;border:1px solid var(--line);color:var(--terracotta2)}
+    .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+    .intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;margin:42px 0}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+    .panel h2{font-size:clamp(1.55rem,3vw,2.35rem);letter-spacing:-.04em;margin:0 0 10px}
+    .panel p{color:var(--muted)}
+    .warning{padding:16px;border-radius:17px;background:var(--warn);border:1px solid #ecd28f;margin-top:16px}
+    .map-card{padding:0;overflow:hidden}
+    .map-card img{width:100%;height:350px;object-fit:cover;display:block}
+    .map-card figcaption{padding:17px 20px;color:var(--muted);font-size:.9rem}
+    .compare{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+    .compare-card{border:1px solid var(--line);border-radius:18px;padding:19px;background:#fffaf2}
+    .compare-card .big{font-size:2rem;font-weight:950;letter-spacing:-.045em}
+    .compare-card strong{display:block;margin-bottom:4px}
+    .tab-panel{display:none;padding:8px 0 64px}.tab-panel.active{display:block}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin:28px 0 20px}
+    .section-head h2{font-size:clamp(2rem,5vw,4rem);line-height:1;letter-spacing:-.055em;margin:0}
+    .section-head p{max-width:600px;color:var(--muted);margin:0}
+    .route-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 22px}
+    .metric{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px}
+    .metric span{display:block;color:var(--muted);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}.metric strong{font-size:1.55rem;letter-spacing:-.04em}
+    .status-bad{background:var(--bad);border-color:#e9bdb2}.status-good{background:var(--good);border-color:#b8ddc2}
+    .day{background:#fff;border:1px solid var(--line);border-radius:25px;overflow:hidden;box-shadow:var(--shadow);margin:20px 0}
+    .day-head{padding:22px 24px;background:linear-gradient(120deg,#7d321c,#b75c31);color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+    .day-head h3{font-size:clamp(1.4rem,3vw,2.25rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 6px}.day-head p{margin:0;color:#ffeadd}.drive{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.24);padding:9px 11px;border-radius:12px;font-weight:850;white-space:nowrap}
+    .day-body{padding:24px}
+    .legs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.leg{background:var(--blue-soft);color:#234d59;padding:8px 10px;border-radius:999px;font-weight:800;font-size:.86rem}
+    .timeline{border-left:2px solid #dcc8af;margin-left:9px;padding-left:29px}.stop{position:relative;padding:0 0 23px}.stop:last-child{padding-bottom:4px}.stop::before{content:"";position:absolute;left:-37px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--terracotta);border:4px solid #fff;box-shadow:0 0 0 2px var(--terracotta)}
+    .stop h4{font-size:1.18rem;margin:0}.stop p{margin:7px 0;color:#5f4d43}.time{display:inline-block;font-size:.8rem;padding:4px 7px;border-radius:8px;background:#f5e8d8;color:#75351d;font-weight:850;margin-right:8px}
+    .day-note{margin-top:18px;padding:15px;border-radius:15px;background:#faf3e7;border:1px solid var(--line);color:#654f40}
+    .custom-grid{display:grid;grid-template-columns:.83fr 1.17fr;gap:22px}
+    .controls{position:sticky;top:86px;align-self:start}
+    .controls h3,.results h3{margin:0 0 10px;font-size:1.45rem}
+    .quick-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 17px}
+    .quick-buttons button{border:1px solid var(--line);background:#fff;border-radius:11px;padding:8px 10px;font-weight:800;cursor:pointer}
+    .destination-checks{display:grid;gap:8px}
+    .check-row{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--line);border-radius:13px;padding:10px 12px;background:#fff}
+    .check-row label{display:flex;align-items:center;gap:9px;font-weight:800;cursor:pointer}.check-row small{color:var(--muted);white-space:nowrap}
+    input[type="checkbox"]{width:18px;height:18px;accent-color:var(--terracotta)}
+    .number-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:17px 0}.number-row label{font-size:.84rem;font-weight:850;color:var(--muted)}.number-row input{width:100%;padding:10px;border:1px solid var(--line);border-radius:11px;margin-top:5px;background:#fff}
+    .result-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.result-metric{border:1px solid var(--line);border-radius:15px;padding:14px;background:#fff}.result-metric span{display:block;color:var(--muted);font-size:.78rem;font-weight:800}.result-metric strong{font-size:1.35rem}
+    .feasibility{padding:16px;border-radius:16px;font-weight:800;margin:12px 0}.feasibility.bad{background:var(--bad);border:1px solid #e8b7ab}.feasibility.ok{background:var(--good);border:1px solid #b4d9bd}
+    .route-table{width:100%;border-collapse:collapse;margin-top:12px}.route-table th,.route-table td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:top}.route-table th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+    .route-table a{font-weight:800;color:var(--terracotta2)}
+    .place-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
+    .place{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 12px 30px rgba(75,43,27,.08)}
+    .place-top{min-height:145px;padding:21px;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;position:relative;overflow:hidden}
+    .place-top::after{content:attr(data-icon);position:absolute;right:14px;top:-5px;font-size:7rem;opacity:.16;transform:rotate(-8deg)}
+    .place-top h3{font-size:2rem;line-height:1;letter-spacing:-.045em;margin:0;position:relative;z-index:1}.priority{position:relative;z-index:1;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.25);font-size:.78rem;font-weight:850}
+    .place-body{padding:20px}.place-body p{color:var(--muted)}.facts{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 15px}.fact{padding:6px 8px;border-radius:999px;background:#f5eadb;color:#704229;font-size:.78rem;font-weight:850}.place-body h4{margin:17px 0 6px}.highlights{margin:0;padding-left:20px;color:#604d42}.micro-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.micro{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fffaf3}.micro strong{display:block;margin-bottom:4px}.micro p{font-size:.88rem;margin:0}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .practical-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:24px 0}.practical{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px}.practical h3{margin:0 0 8px}.practical p{color:var(--muted)}
+    .sources{padding:30px 0 60px;color:var(--muted);font-size:.9rem}.sources details{background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px 18px}.sources summary{font-weight:900;color:var(--ink);cursor:pointer}.sources ul{columns:2;gap:30px}
+    footer{background:#2c1a12;color:#f7e8da;text-align:center;padding:30px 20px}
+    .floating{position:fixed;right:17px;bottom:17px;z-index:50;box-shadow:var(--shadow)}
+    @media(max-width:950px){.intro-grid,.custom-grid{grid-template-columns:1fr}.controls{position:static}.route-summary,.practical-grid{grid-template-columns:repeat(2,1fr)}.place-grid{grid-template-columns:1fr}}
+    @media(max-width:660px){.nav{align-items:flex-start;flex-direction:column}.route-summary,.result-metrics,.compare,.micro-grid,.practical-grid{grid-template-columns:1fr}.hero{min-height:75vh}.day-head{align-items:flex-start;flex-direction:column}.map-card img{height:270px}.sources ul{columns:1}.floating{display:none}.number-row{grid-template-columns:1fr}}
+    @media print{.nav-wrap,.floating,.actions,.quick-buttons{display:none!important}.tab-panel{display:none!important}.tab-panel.active{display:block!important}.hero{min-height:280px}.day,.place,.panel{box-shadow:none;break-inside:avoid}.wrap{max-width:none}.controls{position:static}.sources{display:none}}
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">🐪 RUTA HABIBIS · COCHE + FERRY DESDE LLEIDA</span>
+    <h1>Marruecos: el viaje que empieza en esta mesa</h1>
+    <p>Tres formas de plantearlo: todos los destinos de la imagen, una ruta esencial sin Casablanca, Meknes ni Essaouira, y un planificador para escoger exactamente qué queréis visitar.</p>
+    <div class="hero-meta"><span>🚗 Salida y regreso: Lleida</span><span>⛴️ Algeciras ↔ Tánger Med</span><span>🏜️ Desierto + ciudades imperiales + cine</span><span>📅 Estimaciones revisadas: agosto de 2026</span></div>
+  </div>
+</header>
+<nav class="nav-wrap" aria-label="Opciones de ruta"><div class="nav"><strong>Escoge la versión:</strong><div class="tabs"><button class="tab-btn active" data-tab="full">🧭 Completa</button><button class="tab-btn" data-tab="essential">🔥 Esencial</button><button class="tab-btn" data-tab="custom">🛠️ Personalizable</button></div></div></nav>
+
+<main class="wrap">
+  <section class="intro-grid">
+    <article class="panel">
+      <h2>La imagen no está a escala: Marruecos es mucho más grande</h2>
+      <p>Los diez lugares encajan en una gran ruta circular, pero no en una semana saliendo y regresando a Lleida en coche. Solo Lleida–Algeciras–Lleida ronda 23 horas de conducción, y cada cruce en ferry exige sumar navegación, embarque, frontera y posibles esperas.</p>
+      <div class="warning"><strong>Con 7 días:</strong> ninguna de las dos rutas fijas es razonable. La web lo muestra claramente y el configurador permite reducir destinos hasta encontrar una combinación compatible con el tiempo disponible.</div>
+      <div class="compare">
+        <div class="compare-card"><strong>Ruta completa</strong><div class="big">13 días</div><span>10 destinos · intensa</span></div>
+        <div class="compare-card"><strong>Ruta esencial</strong><div class="big">10 días</div><span>7 destinos · intensa</span></div>
+      </div>
+    </article>
+    <figure class="panel map-card"><img src="assets/mapa-inspiracion.jpg" alt="Composición artística con destinos de Marruecos" /><figcaption>La imagen que inspira la ruta. Sirve para visualizar los contrastes, no para calcular distancias reales.</figcaption></figure>
+  </section>
+
+  <section id="full" class="tab-panel active">
+    <div class="section-head"><div><h2>Ruta completa</h2><p>Incluye Tánger, Chefchaouen, Meknes, Fez, Merzouga, Todra, Aït Ben Haddou, Marrakech, Essaouira y Casablanca.</p></div></div>
+    <div class="route-summary"><div class="metric"><span>Duración</span><strong>13 días</strong></div><div class="metric"><span>Destinos</span><strong>10</strong></div><div class="metric"><span>Coche aprox.</span><strong>55–58 h</strong></div><div class="metric status-bad"><span>¿Cabe en 7 días?</span><strong>No</strong></div></div>
+
+    <article class="day"><div class="day-head"><div><h3>Día 1 · Lleida → Algeciras</h3><p>El gran enlace peninsular.</p></div><div class="drive">🚗 11 h 30</div></div><div class="day-body"><div class="legs"><span class="leg">Lleida → Algeciras · 11 h–11 h 45</span></div><div class="timeline"><div class="stop"><h4><span class="time">06:00–19:00</span>Carretera con paradas</h4><p>Conviene dormir en Algeciras. Intentar sumar el ferry el mismo día solo tiene sentido con dos conductores, salida muy temprana y margen amplio.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 2 · Ferry y Tánger</h3><p>Primera toma de contacto con Marruecos.</p></div><div class="drive">⛴️ 3–4 h + 🚗 50 min</div></div><div class="day-body"><div class="legs"><span class="leg">Algeciras → Tánger Med · navegación ~1 h 30</span><span class="leg">Tánger Med → Tánger · 45–55 min</span></div><div class="timeline"><div class="stop"><h4><span class="time">Mañana</span>Ferry y frontera</h4><p>Reserva una salida temprana y no construyas el día con horarios demasiado justos.</p></div><div class="stop"><h4><span class="time">Tarde</span>Kasbah, medina y Café Hafa</h4><p>Dormir en Tánger y dejar el coche en el aparcamiento del alojamiento o fuera de la medina.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 3 · Tánger → Chefchaouen → Meknes</h3><p>Rif, callejones azules y primera ciudad imperial.</p></div><div class="drive">🚗 5 h 20</div></div><div class="day-body"><div class="legs"><span class="leg">Tánger → Chefchaouen · 2 h–2 h 10</span><span class="leg">Chefchaouen → Meknes · 3 h 15–3 h 30</span></div><div class="timeline"><div class="stop"><h4><span class="time">10:00–15:00</span>Chefchaouen</h4><p>Medina azul, Ras El Maa y mirador de la Mezquita Española. Salid antes del atardecer para no llegar demasiado tarde a Meknes.</p></div><div class="stop"><h4><span class="time">Noche</span>Meknes</h4><p>Paseo por El Hedim y cena cerca de Bab Mansour.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 4 · Meknes → Fez</h3><p>Una mañana compacta y una tarde en la medina más intensa.</p></div><div class="drive">🚗 1 h</div></div><div class="day-body"><div class="legs"><span class="leg">Meknes → Fez · 55–65 min</span></div><div class="timeline"><div class="stop"><h4><span class="time">09:00–13:00</span>Meknes</h4><p>Bab Mansour, plaza El Hedim y mausoleo de Moulay Ismail.</p></div><div class="stop"><h4><span class="time">15:00–20:00</span>Primera tarde en Fez</h4><p>Bab Boujloud, primeros zocos y mirador al final del día.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 5 · Fez completo</h3><p>El destino que no conviene tratar como una parada rápida.</p></div><div class="drive">🚶 Sin coche</div></div><div class="day-body"><div class="timeline"><div class="stop"><h4><span class="time">Día completo</span>Fez el-Bali</h4><p>Curtiduría Chouara, madrasas, talleres de artesanos y callejones. Un guía oficial durante media jornada ayuda mucho a orientarse.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 6 · Fez → Merzouga</h3><p>La gran travesía hacia Erg Chebbi.</p></div><div class="drive">🚗 7 h 15</div></div><div class="day-body"><div class="legs"><span class="leg">Fez → Merzouga · 7 h–7 h 45</span></div><div class="timeline"><div class="stop"><h4><span class="time">07:30–16:00</span>Carretera hacia el desierto</h4><p>Incluye paradas breves en el Atlas Medio y el valle del Ziz. Llegar con luz da margen para la puesta de sol.</p></div><div class="stop"><h4><span class="time">Atardecer</span>Dunas y campamento</h4><p>La cena suele estar incluida en el campamento. Reserva con antelación y confirma dónde dejar el coche.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 7 · Merzouga</h3><p>Un día para que el desierto sea una experiencia y no una fotografía rápida.</p></div><div class="drive">🚙 Opcional 4×4</div></div><div class="day-body"><div class="timeline"><div class="stop"><h4><span class="time">Amanecer</span>Erg Chebbi</h4><p>Subir a una duna antes de que apriete el calor.</p></div><div class="stop"><h4><span class="time">Día</span>4×4, Khamlia o descanso</h4><p>Elegid una sola actividad potente. Otra noche en Merzouga evita convertir el viaje en una carrera.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 8 · Merzouga → Todra → Aït Ben Haddou</h3><p>Cañón, oasis y arquitectura de tierra.</p></div><div class="drive">🚗 6 h 35</div></div><div class="day-body"><div class="legs"><span class="leg">Merzouga → Todra · 3 h–3 h 15</span><span class="leg">Todra → Aït Ben Haddou · 3 h 20–3 h 40</span></div><div class="timeline"><div class="stop"><h4><span class="time">Mediodía</span>Gargantas del Todra</h4><p>Paseo de 1,5–2 horas por el tramo más estrecho y comida en la zona.</p></div><div class="stop"><h4><span class="time">Tarde</span>Llegada a Aït Ben Haddou</h4><p>Dormir junto al ksar para verlo con luz de tarde o primera hora del día siguiente.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 9 · Aït Ben Haddou → Marrakech</h3><p>El día más cinematográfico.</p></div><div class="drive">🚗 3 h</div></div><div class="day-body"><div class="legs"><span class="leg">Aït Ben Haddou → Marrakech · 3 h–3 h 30</span></div><div class="timeline"><div class="stop"><h4><span class="time">08:30–12:00</span>Ksar de Aït Ben Haddou</h4><p>Cruzar, subir hasta la parte alta y reconocer escenarios de cine.</p></div><div class="stop"><h4><span class="time">Tarde y noche</span>Marrakech</h4><p>Riad, zocos y Jemaa el-Fna al anochecer.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 10 · Marrakech → Essaouira</h3><p>Palacios por la mañana, Atlántico por la tarde.</p></div><div class="drive">🚗 2 h 30</div></div><div class="day-body"><div class="legs"><span class="leg">Marrakech → Essaouira · 2 h 25–2 h 50</span></div><div class="timeline"><div class="stop"><h4><span class="time">Mañana</span>Marrakech</h4><p>Bahía o Madrasa Ben Youssef. Majorelle solo con entrada horaria reservada.</p></div><div class="stop"><h4><span class="time">Tarde</span>Essaouira</h4><p>Puerto, Skala, murallas y puesta de sol.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 11 · Essaouira → Casablanca</h3><p>De la medina atlántica a la gran ciudad moderna.</p></div><div class="drive">🚗 4 h 15</div></div><div class="day-body"><div class="legs"><span class="leg">Essaouira → Casablanca · 4 h–4 h 30</span></div><div class="timeline"><div class="stop"><h4><span class="time">Mañana</span>Último paseo por Essaouira</h4><p>Mercado, puerto y comida temprana.</p></div><div class="stop"><h4><span class="time">Tarde</span>Casablanca</h4><p>Exterior de la Mezquita Hassan II y Corniche. Dormir cerca de una salida sencilla hacia la autopista.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 12 · Casablanca → Tánger Med → Algeciras</h3><p>Mezquita, autopista y frontera.</p></div><div class="drive">🚗 3 h 30 + ⛴️ 3–4 h</div></div><div class="day-body"><div class="legs"><span class="leg">Casablanca → Tánger Med · 3 h 20–3 h 45</span><span class="leg">Ferry + trámites · reservar 3–4 h</span></div><div class="timeline"><div class="stop"><h4><span class="time">Primera hora</span>Visita interior de Hassan II</h4><p>Solo si el horario oficial encaja sin poner en riesgo el ferry.</p></div><div class="stop"><h4><span class="time">Tarde</span>Regreso a España</h4><p>Dormir en Algeciras.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 13 · Algeciras → Lleida</h3><p>Último gran tramo.</p></div><div class="drive">🚗 11 h 30</div></div><div class="day-body"><div class="legs"><span class="leg">Algeciras → Lleida · 11 h–11 h 45</span></div><div class="day-note"><strong>Valoración:</strong> incluye todo, pero es una ruta intensa. Con 14 días sería más agradable porque permitiría un día completo real en Marrakech.</div></div></article>
+  </section>
+
+  <section id="essential" class="tab-panel">
+    <div class="section-head"><div><h2>Ruta esencial</h2><p>Elimina Meknes, Casablanca y Essaouira. Conserva las medinas más potentes, el desierto, Todra, el cine y Marrakech.</p></div></div>
+    <div class="route-summary"><div class="metric"><span>Duración intensa</span><strong>10 días</strong></div><div class="metric"><span>Destinos</span><strong>7</strong></div><div class="metric"><span>Coche aprox.</span><strong>49–52 h</strong></div><div class="metric status-bad"><span>¿Cabe en 7 días?</span><strong>Tampoco</strong></div></div>
+    <article class="day"><div class="day-head"><div><h3>Día 1 · Lleida → Algeciras</h3><p>Dormir antes del ferry.</p></div><div class="drive">🚗 11 h 30</div></div><div class="day-body"><div class="legs"><span class="leg">Lleida → Algeciras · 11 h–11 h 45</span></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 2 · Ferry y Tánger</h3><p>Kasbah, medina y estrecho.</p></div><div class="drive">⛴️ 3–4 h + 🚗 50 min</div></div><div class="day-body"><div class="legs"><span class="leg">Algeciras → Tánger Med · navegación ~1 h 30</span><span class="leg">Puerto → Tánger · 45–55 min</span></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 3 · Tánger → Chefchaouen → Fez</h3><p>Jornada larga, pero lógica.</p></div><div class="drive">🚗 5 h 30</div></div><div class="day-body"><div class="legs"><span class="leg">Tánger → Chefchaouen · 2 h–2 h 10</span><span class="leg">Chefchaouen → Fez · 3 h 20–3 h 35</span></div><div class="day-note">Salid de Chefchaouen como máximo a media tarde. Llegaréis a Fez para cenar, no para visitar.</div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 4 · Fez completo</h3><p>Medina, curtidurías y artesanos.</p></div><div class="drive">🚶 Sin coche</div></div><div class="day-body"><div class="timeline"><div class="stop"><h4><span class="time">Día completo</span>Fez el-Bali</h4><p>Guía oficial recomendado durante la mañana; tarde libre para repetir zonas y comprar sin prisas.</p></div></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 5 · Fez → Merzouga</h3><p>Atlas Medio, valle del Ziz y dunas.</p></div><div class="drive">🚗 7 h 15</div></div><div class="day-body"><div class="legs"><span class="leg">Fez → Merzouga · 7 h–7 h 45</span></div><div class="day-note">Reserva un campamento que coordine el traslado desde su aparcamiento y llegue a tiempo para la puesta de sol.</div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 6 · Merzouga → Todra → Aït Ben Haddou</h3><p>Amanecer y carretera panorámica.</p></div><div class="drive">🚗 6 h 35</div></div><div class="day-body"><div class="legs"><span class="leg">Merzouga → Todra · 3 h–3 h 15</span><span class="leg">Todra → Aït Ben Haddou · 3 h 20–3 h 40</span></div><div class="day-note">Esta opción conserva la noche en el desierto, pero no añade un día completo en Merzouga.</div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 7 · Aït Ben Haddou → Marrakech</h3><p>Cine y Jemaa el-Fna.</p></div><div class="drive">🚗 3 h</div></div><div class="day-body"><div class="legs"><span class="leg">Aït Ben Haddou → Marrakech · 3 h–3 h 30</span></div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 8 · Marrakech completo</h3><p>Palacios, zocos, riad y noche en la plaza.</p></div><div class="drive">🚶 Sin coche</div></div><div class="day-body"><div class="day-note">Reserva Jardín Majorelle y los restaurantes más demandados. No uses el coche dentro de la medina.</div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 9 · Marrakech → Tánger Med → Algeciras</h3><p>La jornada más dura de la ruta.</p></div><div class="drive">🚗 5 h 45 + ⛴️ 3–4 h</div></div><div class="day-body"><div class="legs"><span class="leg">Marrakech → Tánger Med · 5 h 30–6 h</span><span class="leg">Ferry + frontera · reservar 3–4 h</span></div><div class="day-note"><strong>Consejo:</strong> ferry con margen y noche en Algeciras. No planifiques una visita esa mañana.</div></div></article>
+    <article class="day"><div class="day-head"><div><h3>Día 10 · Algeciras → Lleida</h3><p>Regreso.</p></div><div class="drive">🚗 11 h 30</div></div><div class="day-body"><div class="day-note"><strong>Valoración:</strong> es la mejor de las dos rutas fijas para vuestros intereses. Con 11 días añadiría una segunda noche en Merzouga o una llegada menos agresiva al ferry.</div></div></article>
+  </section>
+
+  <section id="custom" class="tab-panel">
+    <div class="section-head"><div><h2>Construye vuestra ruta</h2><p>Selecciona destinos. La web mantiene un orden circular lógico, recalcula visitas, desplazamientos y muestra el tiempo hasta la siguiente parada.</p></div></div>
+    <div class="custom-grid">
+      <aside class="panel controls">
+        <h3>Destinos</h3><p>Los tiempos son aproximados y deben revisarse en Maps antes de viajar.</p>
+        <div class="quick-buttons"><button id="selectAll">Todos</button><button id="selectEssential">Ruta esencial</button><button id="selectSeven">Base 7 días</button><button id="clearAll">Limpiar</button></div>
+        <div id="destinationChecks" class="destination-checks"></div>
+        <div class="number-row"><label>Días disponibles<input id="availableDays" type="number" min="3" max="30" value="7" /></label><label>Horas intensas por día<input id="hoursPerDay" type="number" min="7" max="13" step="0.5" value="10" /></label></div>
+        <button id="printCustom" class="btn btn-outline" type="button">🖨️ Imprimir selección</button>
+      </aside>
+      <article class="panel results">
+        <h3>Resultado</h3>
+        <div id="selectedNames" style="color:var(--muted)"></div>
+        <div class="result-metrics"><div class="result-metric"><span>Visitas</span><strong id="visitHours">0 h</strong></div><div class="result-metric"><span>Conducción total</span><strong id="driveHours">0 h</strong></div><div class="result-metric"><span>Viaje + visitas</span><strong id="totalHours">0 h</strong></div></div>
+        <div id="feasibility" class="feasibility bad"></div>
+        <div class="actions"><a id="customMap" class="btn btn-primary" target="_blank" rel="noopener">Abrir ruta en Google Maps</a></div>
+        <table class="route-table"><thead><tr><th>Parada</th><th>Visita mínima</th><th>Hasta la siguiente</th></tr></thead><tbody id="routeRows"></tbody></table>
+        <div class="day-note"><strong>Qué incluye el cálculo:</strong> 23 h aproximadas de Lleida–Algeciras ida y vuelta, 7 h para los dos ferris y trámites, conducción marroquí y la visita mínima de cada destino. No incluye comidas largas, averías, colas, búsqueda de aparcamiento ni descansos adicionales.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="destinos">
+    <div class="section-head"><div><h2>Ficha de cada destino</h2><p>Qué tiene de especial, cuánto tiempo merece, dónde comer algo típico, qué reservar y cómo evitar entrar con el coche en las medinas.</p></div></div>
+    <div id="placeGrid" class="place-grid"></div>
+  </section>
+
+  <section>
+    <div class="section-head"><div><h2>Reservas y logística</h2><p>Lo que sí conviene cerrar antes de salir.</p></div></div>
+    <div class="practical-grid">
+      <article class="practical"><h3>⛴️ Ferry</h3><p><strong>Reserva imprescindible</strong>, especialmente en verano. La navegación ronda 1 h 30, pero el proceso completo puede ocupar 3–4 horas por sentido.</p><div class="actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.balearia.com/en/routes-timetables/ferry-algeciras-tangiermed">Baleària oficial</a><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.dfds.com/en/passenger-ferries/ferry-crossings/spain-morocco">DFDS oficial</a></div></article>
+      <article class="practical"><h3>🏜️ Campamento de Merzouga</h3><p><strong>Reserva muy recomendada.</strong> Confirma cena, desayuno, traslado en 4×4 o dromedario, baño privado y aparcamiento vigilado para el coche.</p><div class="actions"><a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=desert+camp+Merzouga">Comparar campamentos</a></div></article>
+      <article class="practical"><h3>🌵 Jardín Majorelle</h3><p><strong>Reserva con hora.</strong> Utiliza únicamente la web oficial enlazada; el propio jardín advierte sobre páginas no autorizadas.</p><div class="actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.jardinmajorelle.com/en/">Entradas oficiales</a></div></article>
+      <article class="practical"><h3>🕌 Mezquita Hassan II</h3><p>La visita interior se realiza con visita guiada oficial y horarios concretos. Comprueba el calendario antes de organizar el ferry.</p><div class="actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.fmh2.ma/en/mosque/visits/paid-guided-tour">Información oficial</a></div></article>
+      <article class="practical"><h3>🚘 Documentación del coche</h3><p>Revisa pasaporte, permiso de circulación, seguro con cobertura en Marruecos y autorización consular cuando el conductor no sea propietario. Contrata asistencia y repatriación.</p><div class="actions"><a class="btn btn-outline" target="_blank" rel="noopener" href="https://exteriores.gob.es/es/ServiciosAlCiudadano/Paginas/Detalle-recomendaciones-de-viaje.aspx?trc=Marruecos">Exteriores · Marruecos</a></div></article>
+      <article class="practical"><h3>🅿️ Medinas</h3><p>No intentes llegar con el coche hasta el riad. Pregunta siempre al alojamiento por el parking exacto y un punto de encuentro para el equipaje.</p></article>
+    </div>
+  </section>
+
+  <section class="sources"><details><summary>Fuentes y criterio de los tiempos</summary><ul><li>Oficina Nacional de Turismo de Marruecos: destinos y tiempos indicativos.</li><li>UNESCO: Fez, Marrakech, Meknes, Essaouira y Aït Ben Haddou.</li><li>Baleària y DFDS: rutas de ferry España–Marruecos.</li><li>Ministerio de Asuntos Exteriores de España: documentación y recomendaciones de viaje.</li><li>Jardín Majorelle y Fundación Mezquita Hassan II: visitas oficiales.</li><li>Los tiempos de carretera son estimaciones redondeadas para planificar; deben comprobarse en Google Maps según fecha, obras y tráfico.</li></ul></details></section>
+</main>
+<footer>Ruta Habibis · Web estática preparada para GitHub Pages · La fotografía de cabecera se publica junto con la web.</footer>
+<button class="btn btn-primary floating" onclick="window.print()">🖨️ Imprimir</button>
+
+<script>
+const destinations = [
+ {id:'tanger',name:'Tánger',icon:'🌊',priority:'Prioridad media',visit:5,ideal:8,c1:'#346f7c',c2:'#153f4d',why:'La puerta entre Europa y Marruecos, con ambiente internacional, medina, Kasbah y vistas del Estrecho.',high:['Kasbah y medina','Grand Socco','Café Hafa','Cabo Espartel y Cuevas de Hércules'],food:'Saveur de Poisson: menú de pescado muy singular; suele funcionar con cola y sin una reserva convencional.',eat:'Saveur de Poisson Tangier',park:'Parking Grand Socco Tangier',reserve:'No hace falta reservar monumentos. Sí conviene alojamiento con parking o acuerdo de recogida.',official:'https://www.visitmorocco.com/es/destinations/tanger'},
+ {id:'chefchaouen',name:'Chefchaouen',icon:'💙',priority:'Prioridad alta',visit:5,ideal:8,c1:'#4e8fa6',c2:'#294c79',why:'La ciudad más fotogénica de la ruta: callejones azules encajados en las montañas del Rif.',high:['Medina azul','Outa el-Hammam','Ras El Maa','Mirador de la Mezquita Española'],food:'Bab Ssour: tajines, cuscús y cocina marroquí casera con buena relación calidad-precio.',eat:'Bab Ssour Chefchaouen',park:'Parking Bab El Ain Chefchaouen',reserve:'No es necesario reservar visitas. Para dormir dentro de la medina, pregunta dónde dejar el coche.',official:'https://www.visitmorocco.com/es/destinos/chefchaouen'},
+ {id:'meknes',name:'Meknes',icon:'🏛️',priority:'Prioridad baja-media',visit:3.5,ideal:6,c1:'#ad6a3a',c2:'#6f341d',why:'Ciudad imperial más tranquila que Fez y Marrakech, fácil de entender en media jornada.',high:['Bab Mansour','Plaza El Hedim','Mausoleo de Moulay Ismail','Graneros reales'],food:'Restaurant Aisha: tajines, rfissa y cocina familiar en la medina.',eat:'Restaurant Aisha Meknes',park:'Parking Place Lalla Aouda Meknes',reserve:'Normalmente no necesita entradas anticipadas. Comprueba aperturas de monumentos el mismo día.',official:'https://www.visitmorocco.com/en/travel/meknes'},
+ {id:'fez',name:'Fez',icon:'🧿',priority:'Prioridad muy alta',visit:9,ideal:14,c1:'#7b7540',c2:'#3e4b2d',why:'La medina más intensa y laberíntica del viaje, con oficios tradicionales y una sensación de viaje en el tiempo.',high:['Fez el-Bali','Curtiduría Chouara','Bab Boujloud','Madrasas y talleres'],food:'The Ruined Garden para una cena especial; Café Clock es una alternativa informal y fácil con grupos.',eat:'The Ruined Garden Fes',park:'Parking Ain Azliten Fes',reserve:'Guía oficial recomendable durante media jornada. Reserva restaurantes de riad si queréis cenar allí.',official:'https://www.visitmorocco.com/en/destinations/fez'},
+ {id:'merzouga',name:'Merzouga',icon:'🏜️',priority:'Prioridad máxima',visit:18,ideal:26,c1:'#e28b2e',c2:'#9a451e',why:'La gran experiencia natural: dunas de Erg Chebbi, atardecer, noche en campamento y cielo estrellado.',high:['Puesta de sol en dunas','Amanecer','Campamento','4×4, dromedario o sandboard'],food:'La cena suele estar incluida en el campamento. Como alternativa local, Chez Youssef es una opción sencilla en el pueblo.',eat:'Chez Youssef Merzouga',park:'Parking desert camp Merzouga',reserve:'Campamento imprescindible en temporada alta. Confirma punto de encuentro y parking antes de llegar.',official:'https://www.visitmorocco.com/en/travel/errachidia-midelt-merzouga'},
+ {id:'todra',name:'Gargantas del Todra',icon:'🧗',priority:'Prioridad media-alta',visit:2,ideal:4,c1:'#a65e36',c2:'#66301e',why:'Un cañón estrecho de paredes verticales que rompe el paisaje desértico y encaja naturalmente en la ruta.',high:['Tramo estrecho del cañón','Paseo a pie','Palmeral de Tinghir','Contraste roca y oasis'],food:'Auberge Restaurant La Petite Gorge: parada práctica para cocina marroquí junto al cañón.',eat:'La Petite Gorge Todra',park:'Parking Todra Gorge',reserve:'No requiere reserva. Evita las horas centrales si hace mucho calor.',official:'https://www.visitmorocco.com/en/travel/ouarzazate-zagora-tinghir'},
+ {id:'ait',name:'Aït Ben Haddou',icon:'🎬',priority:'Prioridad máxima',visit:3,ideal:5,c1:'#b45a2a',c2:'#773019',why:'El gran destino cinematográfico: un ksar de tierra, torres y callejones reconocido por la UNESCO.',high:['Vista completa del ksar','Subida al granero','Luz del atardecer','Escenarios de cine y series'],food:'Tawesna Tea Room, cooperativa local de mujeres, o Kasbah Valentine para comer con vistas.',eat:'Tawesna Tea Room Ait Ben Haddou',park:'Parking Ksar Ait Ben Haddou',reserve:'No necesita reserva. Dormir cerca permite visitarlo temprano y evitar excursiones de grupos.',official:'https://whc.unesco.org/en/list/444/'},
+ {id:'marrakech',name:'Marrakech',icon:'🕌',priority:'Prioridad máxima',visit:10,ideal:16,c1:'#b33127',c2:'#671d1e',why:'La ciudad más completa: zocos, palacios, riads, jardines y la energía nocturna de Jemaa el-Fna.',high:['Jemaa el-Fna','Zocos','Palacio de la Bahía','Madrasa Ben Youssef y Majorelle'],food:'Al Fassia para cocina tradicional marroquí y Nomad para terraza moderna. Ambos conviene reservar.',eat:'Al Fassia Marrakech',park:'Parking Koutoubia Marrakech',reserve:'Majorelle con entrada horaria. Reserva Al Fassia, Nomad y riad con parking coordinado.',official:'https://www.visitmorocco.com/es/destinations/marrakech'},
+ {id:'essaouira',name:'Essaouira',icon:'🌬️',priority:'Prioridad media',visit:6,ideal:10,c1:'#5e8791',c2:'#34515e',why:'Costa atlántica, murallas, puerto pesquero y una medina relajada que contrasta con Marrakech.',high:['Skala y cañones','Puerto','Medina blanca y azul','Atardecer atlántico'],food:'Puestos de pescado del puerto para una experiencia informal; La Table by Madada para una cena especial.',eat:'La Table by Madada Essaouira',park:'Parking Bab Marrakech Essaouira',reserve:'Reserva La Table by Madada y alojamiento en temporada alta; los puestos del puerto no.',official:'https://visitmorocco.com/en/travel/essaouira-mogador'},
+ {id:'casablanca',name:'Casablanca',icon:'🏙️',priority:'Prioridad baja',visit:4,ideal:6,c1:'#58727a',c2:'#283d48',why:'La cara moderna y urbana de Marruecos. La Mezquita Hassan II justifica la parada.',high:['Mezquita Hassan II','Corniche','Arquitectura art déco','Plaza Mohammed V'],food:'La Sqala: jardín agradable y cocina marroquí; reserva recomendable en fin de semana.',eat:'La Sqala Casablanca',park:'Parking Hassan II Mosque Casablanca',reserve:'Comprueba horarios de visita guiada de Hassan II. No coloques el ferry justo después sin margen.',official:'https://www.visitmorocco.com/en/travel/casablanca'}
+];
+const order=['tanger','chefchaouen','meknes','fez','merzouga','todra','ait','marrakech','essaouira','casablanca'];
+const labels={port:'Tánger Med',...Object.fromEntries(destinations.map(d=>[d.id,d.name]))};
+const baseLegs={
+ 'port-tanger':0.8,'port-chefchaouen':2.2,'port-meknes':3.8,'port-fez':4.5,'port-merzouga':10.5,'port-todra':11.0,'port-ait':8.8,'port-marrakech':5.8,'port-essaouira':7.6,'port-casablanca':3.5,
+ 'tanger-chefchaouen':2.05,'tanger-meknes':3.8,'tanger-fez':4.4,'tanger-merzouga':10.2,'tanger-todra':11.2,'tanger-ait':8.8,'tanger-marrakech':5.7,'tanger-essaouira':7.8,'tanger-casablanca':3.4,
+ 'chefchaouen-meknes':3.35,'chefchaouen-fez':3.4,'chefchaouen-merzouga':9.5,'chefchaouen-todra':10.4,'chefchaouen-ait':9.5,'chefchaouen-marrakech':7.1,'chefchaouen-essaouira':9.6,'chefchaouen-casablanca':5.3,
+ 'meknes-fez':1.0,'meknes-merzouga':6.5,'meknes-todra':7.4,'meknes-ait':6.9,'meknes-marrakech':5.1,'meknes-essaouira':7.7,'meknes-casablanca':2.4,
+ 'fez-merzouga':7.25,'fez-todra':7.0,'fez-ait':7.6,'fez-marrakech':5.5,'fez-essaouira':8.0,'fez-casablanca':3.0,
+ 'merzouga-todra':3.1,'merzouga-ait':6.7,'merzouga-marrakech':9.0,'merzouga-essaouira':11.4,'merzouga-casablanca':9.5,
+ 'todra-ait':3.5,'todra-marrakech':6.0,'todra-essaouira':8.5,'todra-casablanca':7.4,
+ 'ait-marrakech':3.1,'ait-essaouira':5.5,'ait-casablanca':5.6,
+ 'marrakech-essaouira':2.55,'marrakech-casablanca':2.75,
+ 'essaouira-casablanca':4.25,
+ 'tanger-port':0.8,'chefchaouen-port':2.2,'meknes-port':3.8,'fez-port':4.5,'merzouga-port':10.3,'todra-port':10.5,'ait-port':8.7,'marrakech-port':5.75,'essaouira-port':7.6,'casablanca-port':3.5
+};
+function legTime(a,b){return baseLegs[`${a}-${b}`] ?? baseLegs[`${b}-${a}`] ?? 0;}
+function fmt(h){const hr=Math.floor(h),min=Math.round((h-hr)*60);return min?`${hr} h ${min} min`:`${hr} h`;}
+function mapsSearch(q){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;}
+
+// Tabs
+const tabButtons=[...document.querySelectorAll('.tab-btn')];
+tabButtons.forEach(btn=>btn.addEventListener('click',()=>{tabButtons.forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');window.scrollTo({top:document.querySelector('.nav-wrap').offsetTop,behavior:'smooth'});}));
+
+// Destination cards
+const placeGrid=document.getElementById('placeGrid');
+placeGrid.innerHTML=destinations.map(d=>`<article class="place"><div class="place-top" style="--c1:${d.c1};--c2:${d.c2}" data-icon="${d.icon}"><h3>${d.name}</h3><span class="priority">${d.priority}</span></div><div class="place-body"><div class="facts"><span class="fact">Mínimo ${fmt(d.visit)}</span><span class="fact">Ideal ${fmt(d.ideal)}</span></div><p><strong>Por qué verla:</strong> ${d.why}</p><h4>Lo más guapo</h4><ul class="highlights">${d.high.map(x=>`<li>${x}</li>`).join('')}</ul><div class="micro-grid"><div class="micro"><strong>🍽️ Comer</strong><p>${d.food}</p></div><div class="micro"><strong>📅 Reserva</strong><p>${d.reserve}</p></div></div><div class="actions"><a class="btn btn-primary" target="_blank" rel="noopener" href="${mapsSearch(d.eat)}">Restaurante</a><a class="btn btn-secondary" target="_blank" rel="noopener" href="${mapsSearch(d.park)}">Parking</a><a class="btn btn-outline" target="_blank" rel="noopener" href="${d.official}">Info oficial</a></div></div></article>`).join('');
+
+// Customizer
+const checks=document.getElementById('destinationChecks');
+checks.innerHTML=destinations.map(d=>`<div class="check-row"><label><input type="checkbox" value="${d.id}"><span>${d.icon} ${d.name}</span></label><small>${fmt(d.visit)}</small></div>`).join('');
+const allChecks=[...checks.querySelectorAll('input')];
+function setSelection(ids){allChecks.forEach(c=>c.checked=ids.includes(c.value));updateCustom();}
+document.getElementById('selectAll').onclick=()=>setSelection(order);
+document.getElementById('selectEssential').onclick=()=>setSelection(['tanger','chefchaouen','fez','merzouga','todra','ait','marrakech']);
+document.getElementById('selectSeven').onclick=()=>setSelection(['tanger','chefchaouen','fez']);
+document.getElementById('clearAll').onclick=()=>setSelection([]);
+document.getElementById('printCustom').onclick=()=>window.print();
+allChecks.forEach(c=>c.addEventListener('change',updateCustom));
+document.getElementById('availableDays').addEventListener('input',updateCustom);
+document.getElementById('hoursPerDay').addEventListener('input',updateCustom);
+function updateCustom(){
+ const selected=order.filter(id=>allChecks.find(c=>c.value===id).checked);
+ const route=['port',...selected,'port'];
+ let moroccoDrive=0; const rows=[];
+ selected.forEach((id,i)=>{
+   const next=i===selected.length-1?'port':selected[i+1];
+   const t=legTime(id,next); moroccoDrive+=t;
+   rows.push({id,next,t});
+ });
+ if(selected.length){moroccoDrive+=legTime('port',selected[0]);}
+ const visit=selected.reduce((sum,id)=>sum+destinations.find(d=>d.id===id).visit,0);
+ const totalDrive=23+moroccoDrive;
+ const total=totalDrive+7+visit;
+ const pace=Math.max(7,Number(document.getElementById('hoursPerDay').value)||10);
+ const intense=Math.max(selected.length?3:2,Math.ceil(total/pace));
+ const recommended=Math.max(intense,Math.ceil(total/9.1));
+ const available=Math.max(1,Number(document.getElementById('availableDays').value)||7);
+ document.getElementById('selectedNames').textContent=selected.length?selected.map(id=>labels[id]).join(' → '):'No has seleccionado destinos.';
+ document.getElementById('visitHours').textContent=fmt(visit);
+ document.getElementById('driveHours').textContent=fmt(totalDrive);
+ document.getElementById('totalHours').textContent=fmt(total);
+ const f=document.getElementById('feasibility');
+ if(!selected.length){f.className='feasibility bad';f.textContent='Selecciona al menos un destino para calcular la ruta.';}
+ else if(available<intense){f.className='feasibility bad';f.innerHTML=`Con ${available} días no cabe. Estimación mínima muy intensa: <strong>${intense} días</strong>; más razonable: <strong>${recommended} días</strong>.`;}
+ else{f.className='feasibility ok';f.innerHTML=`La selección puede encajar en ${available} días, aunque la estimación cómoda es de unos <strong>${recommended} días</strong>.`;}
+ const first=selected[0];
+ let html='';
+ if(first){html+=`<tr><td><strong>Tánger Med → ${labels[first]}</strong></td><td>—</td><td>${fmt(legTime('port',first))}</td></tr>`;}
+ html+=rows.map(r=>{const d=destinations.find(x=>x.id===r.id);return `<tr><td><strong>${d.name}</strong></td><td>${fmt(d.visit)}</td><td>${labels[r.next]} · ${fmt(r.t)}<br><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(d.name+', Morocco')}&destination=${encodeURIComponent(labels[r.next]+', Morocco')}">Comprobar tramo</a></td></tr>`}).join('');
+ document.getElementById('routeRows').innerHTML=html||'<tr><td colspan="3">Sin ruta.</td></tr>';
+ const map=document.getElementById('customMap');
+ if(selected.length){const way=selected.map(id=>labels[id]+', Morocco');map.href=`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent('Tanger Med, Morocco')}&destination=${encodeURIComponent('Tanger Med, Morocco')}&waypoints=${encodeURIComponent(way.join('|'))}`;map.style.pointerEvents='auto';map.style.opacity='1';}else{map.removeAttribute('href');map.style.pointerEvents='none';map.style.opacity='.45';}
+ localStorage.setItem('moroccoSelection',JSON.stringify(selected));
+}
+try{const saved=JSON.parse(localStorage.getItem('moroccoSelection')||'null');if(Array.isArray(saved)&&saved.length)setSelection(saved);else setSelection(['tanger','chefchaouen','fez','merzouga','todra','ait','marrakech']);}catch(e){setSelection(['tanger','chefchaouen','fez','merzouga','todra','ait','marrakech']);}
+</script>
+</body>
+</html>
