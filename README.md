@@ -1,38 +1,26 @@
-# Habibi's welcome to Morocco
+# Habibi's welcome to Morocco - GitHub Pages
 
-Web estática preparada para GitHub Pages.
+Versión actualizada de la ruta del 25 de septiembre al 3 de octubre de 2026.
 
-## Contenido
+## Publicar o sustituir la versión anterior
 
-- `index.html`
-- `.nojekyll`
-- `assets/hero-habibis.jpg`
-- `assets/social-preview.jpg`
-- `assets/seguro-zurich.pdf`
+1. Descomprimir el ZIP.
+2. Abrir el repositorio en GitHub y entrar en **Code → Add file → Upload files**.
+3. Arrastrar el contenido de esta carpeta a la raíz del repositorio:
+   - `index.html`
+   - `.nojekyll`
+   - carpeta `assets/` completa
+4. Confirmar con **Commit changes** en la rama `main`.
+5. Comprobar **Settings → Pages → Deploy from a branch → main → / (root)**.
+6. Esperar a que **Actions → Pages build and deployment** aparezca en verde.
+7. Abrir la web con `?v=4` al final para evitar la caché, por ejemplo: `https://usuario.github.io/repositorio/?v=4`.
 
-## Publicar gratis con GitHub Pages
+## Mapa dinámico
 
-1. Crea un repositorio público, por ejemplo `habibis-morocco`.
-2. Sube **el contenido de esta carpeta** a la raíz del repositorio.
-3. En GitHub abre `Settings` → `Pages`.
-4. En `Build and deployment`, selecciona `Deploy from a branch`.
-5. Selecciona la rama `main` y la carpeta `/ (root)`.
-6. Guarda y espera unos minutos.
+El mapa incluido usa OpenStreetMap + OSRM para funcionar en GitHub Pages sin clave y sin el error «www.google.com ha rechazado la conexión». Permite añadir, quitar y reordenar paradas, recalcula distancia/tiempo y ofrece un botón para abrir la ruta actual en Google Maps.
 
-La dirección tendrá esta forma:
-
-`https://TU-USUARIO.github.io/habibis-morocco/`
+El mapa necesita conexión a Internet para cargar teselas, buscar lugares y calcular rutas. Los servicios públicos pueden sufrir límites o interrupciones puntuales.
 
 ## Privacidad
 
-La fotografía de cabecera quedará públicamente accesible. Asegúrate de que todos los que aparecen están de acuerdo.
-
-No se han incluido capturas con códigos de reserva, códigos de barras, números de confirmación ni nombres completos. No los publiques en GitHub.
-
-## Mapa
-
-El mapa utiliza enlaces y una vista incrustada de Google Maps sin clave API. Al añadir, mover o eliminar una parada, se actualiza la ruta del día en la propia web. Los tiempos de las tarjetas del itinerario son estimaciones fijas y no se editan automáticamente.
-
-## Seguro
-
-El PDF incluido es el documento informativo aportado por el usuario. No contiene límites económicos ni el teléfono específico de la póliza. Antes de viajar, añade o guarda la póliza completa de forma privada, no en un repositorio público.
+No subir capturas con nombres, códigos de reserva, códigos de barras, pasaportes o datos personales. La web y sus archivos serán públicos.
