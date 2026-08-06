@@ -1,40 +1,21 @@
-# Habibi's welcome to Morocco - GitHub Pages
+# Habibi's welcome to Morocco
 
-Ruta actualizada del 25 de septiembre al 3 de octubre de 2026.
+Web estática preparada para GitHub Pages.
 
-## Publicar o sustituir la versión anterior
+## Publicación
 
-1. Descomprimir el ZIP.
-2. Abrir el repositorio en GitHub y entrar en **Code → Add file → Upload files**.
-3. Subir a la raíz del repositorio:
+1. Subir a la raíz del repositorio:
    - `index.html`
    - `.nojekyll`
-   - carpeta `assets/` completa
-4. Confirmar con **Commit changes** en la rama `main`.
-5. Comprobar **Settings → Pages → Deploy from a branch → main → / (root)**.
-6. Esperar a que **Actions → Pages build and deployment** aparezca en verde.
-7. Abrir la web con `?v=9` al final para evitar una copia antigua de la caché.
+   - carpeta `assets/`
+2. Entrar en `Settings → Pages`.
+3. Seleccionar `Deploy from a branch`, rama `main` y carpeta `/ (root)`.
+4. Guardar y esperar a que la ejecución de `Pages build and deployment` aparezca en verde.
 
-## Cambios principales
+## Actualización
 
-- Eliminación de textos técnicos sobre la publicación y el mapa.
-- Inclusión de Cuevas de Hércules (Tánger), vinculadas al mito de las Columnas de Hércules.
-- Incorporación de una sugerencia de seguro para los días sin cobertura Zurich indicada.
-- Tarifa mínima orientativa de Heymondo claramente separada del total conocido del viaje.
-- Mantenimiento de botones para abrir y modificar cada trayecto en Google Maps.
+Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=11` durante la comprobación para evitar una copia antigua de la caché.
 
 ## Privacidad
 
-No subir capturas con nombres, códigos de reserva, códigos de barras, pasaportes o datos personales. La web y sus archivos serán públicos.
-
-
-## Cambio de la versión 8
-
-La fotografía de cabecera se muestra completa en pantallas móviles, con el título situado debajo para evitar recortes.
-
-
-## Cambio de la versión 9
-
-- Trasladar la parada opcional en Tetuán o Fnideq/Castillejos al regreso desde Chefchaouen del 27 de septiembre.
-- Dejar el 2 de octubre como trayecto directo Tánger → Tánger Med + ferry.
-- Indicar que Moha ha pagado los 166 € del hotel (Marrakech) y los 75 € de Agafay.
+La web es pública. No subir billetes, códigos de barras, números de reserva, pasaportes ni documentos personales.
