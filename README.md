@@ -14,8 +14,13 @@ Web estática preparada para GitHub Pages.
 
 ## Actualización
 
-Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=11` durante la comprobación para evitar una copia antigua de la caché.
+Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=12` durante la comprobación para evitar una copia antigua de la caché.
 
 ## Privacidad
 
 La web es pública. No subir billetes, códigos de barras, números de reserva, pasaportes ni documentos personales.
+
+
+## Cambios de la versión 12
+
+Añadida la sección **Costes estimados** con escenarios ajustado, realista y con margen, desglose del presupuesto realista y coste final por persona.
