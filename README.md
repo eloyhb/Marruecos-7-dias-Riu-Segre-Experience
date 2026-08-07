@@ -14,13 +14,16 @@ Web estática preparada para GitHub Pages.
 
 ## Actualización
 
-Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=12` durante la comprobación para evitar una copia antigua de la caché.
+Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=13` durante la comprobación para evitar una copia antigua de la caché.
 
 ## Privacidad
 
 La web es pública. No subir billetes, códigos de barras, números de reserva, pasaportes ni documentos personales.
 
+## Cambios de la versión 13
 
-## Cambios de la versión 12
-
-Añadida la sección **Costes estimados** con escenarios ajustado, realista y con margen, desglose del presupuesto realista y coste final por persona.
+- Corregido el hotel de Marrakech: reservado por Moha, pero pendiente de pago.
+- Pagado por Moha hasta ahora: 75 € de Agafay.
+- Todo el viaje y los presupuestos se calculan para 5 personas.
+- La única referencia a 4 personas corresponde a la captura inicial del ferry (4 pasajeros + vehículo), que debe recalcularse para 5.
+- Paquete mantenido en formato flat para GitHub Pages.
