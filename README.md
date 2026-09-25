@@ -1,29 +1,31 @@
-# Habibi's welcome to Morocco
+# Habibi's welcome to Morocco · v14 flat
 
-Web estática preparada para GitHub Pages.
+Versión actualizada para GitHub Pages / uso local.
 
-## Publicación
+## Cambios principales
+- 4 viajeros: Moha, Eloy, Santi y Alex.
+- Viaje 26/09/2026 → 04/10/2026.
+- Ida en avión BCN 15:45 → Tánger 15:45 (26/09).
+- Vuelta Tánger 06:40 → BCN 10:30 (04/10).
+- Parking General T2 AENA: 26/09 13:00 → 04/10 13:00, 39,90 €, localizador CWPS9.
+- Coche de alquiler: 70 €/persona (280 €), fuera del bote.
+- Bote común: 300 €/persona = 1.200 €.
+- Hotel Marrakech actualizado a 117 € pendiente.
+- Agafay actualizado a 46 € pagados por Moha.
+- Chez Ali: previsión 240 € para 4.
+- Seguro Heymondo completo 26/09–04/10, 4 viajeros, 108,44 €, póliza HEY2445897.
+- MoneyGram/Cashplus: operación documentada de 1.583,40 € + 6,60 € comisión = 1.590 €, 17.308,20 MAD recibidos.
 
-1. Subir a la raíz del repositorio:
-   - `index.html`
-   - `.nojekyll`
-   - carpeta `assets/`
-2. Entrar en `Settings → Pages`.
-3. Seleccionar `Deploy from a branch`, rama `main` y carpeta `/ (root)`.
-4. Guardar y esperar a que la ejecución de `Pages build and deployment` aparezca en verde.
-
-## Actualización
-
-Sustituir los archivos antiguos por los nuevos conservando exactamente la misma estructura. Abrir la web con `?v=13` durante la comprobación para evitar una copia antigua de la caché.
+## Archivos incluidos
+- `index.html`
+- `.nojekyll`
+- `assets/route-map-plane.svg`
+- `assets/reserva-parking-aena-t2.pdf`
+- `assets/seguro-heymondo-certificado.pdf`
+- `assets/seguro-heymondo-condiciones-generales.pdf`
+- `assets/moneygram-cotizacion.jpeg`
+- `assets/moneygram-transferencia.jpeg`
+- assets visuales de versiones anteriores.
 
 ## Privacidad
-
-La web es pública. No subir billetes, códigos de barras, números de reserva, pasaportes ni documentos personales.
-
-## Cambios de la versión 13
-
-- Corregido el hotel de Marrakech: reservado por Moha, pero pendiente de pago.
-- Pagado por Moha hasta ahora: 75 € de Agafay.
-- Todo el viaje y los presupuestos se calculan para 5 personas.
-- La única referencia a 4 personas corresponde a la captura inicial del ferry (4 pasajeros + vehículo), que debe recalcularse para 5.
-- Paquete mantenido en formato flat para GitHub Pages.
+Los documentos y capturas se incluyen tal como fueron aportados y contienen datos personales. No subir a un repositorio público salvo que se quiera hacer públicos dichos datos.

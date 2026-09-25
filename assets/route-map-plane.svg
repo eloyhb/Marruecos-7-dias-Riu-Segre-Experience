@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#edf6f8"/><stop offset="1" stop-color="#f7eddf"/></linearGradient>
+  <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#563d2f" flood-opacity=".16"/></filter>
+  <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2f7182"/></marker>
+  <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a13c24"/></marker>
+</defs>
+<rect width="1400" height="760" fill="url(#bg)"/>
+<text x="90" y="92" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#281b16">Habibi's Morocco · ruta 26 SEP → 4 OCT</text>
+<text x="90" y="132" font-family="Arial,sans-serif" font-size="20" fill="#756055">Vuelo Barcelona ↔ Tánger + recorrido por carretera en Marruecos</text>
+
+<!-- flight -->
+<path d="M180 240 C390 80, 570 85, 720 250" fill="none" stroke="#2f7182" stroke-width="7" stroke-dasharray="15 12" marker-end="url(#arrowBlue)"/>
+<path d="M720 288 C540 420, 350 420, 180 275" fill="none" stroke="#2f7182" stroke-width="4" stroke-dasharray="10 10" opacity=".75" marker-end="url(#arrowBlue)"/>
+<text x="400" y="150" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#2f7182">✈ 26/09 · BCN 15:45 → TNG 15:45</text>
+<text x="350" y="405" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#2f7182">✈ 04/10 · TNG 06:40 → BCN 10:30</text>
+
+<!-- city nodes -->
+<g filter="url(#s)" font-family="Arial,sans-serif">
+  <g transform="translate(110 205)"><circle r="26" fill="#2f7182"/><text x="0" y="8" text-anchor="middle" font-size="24" fill="white">✈</text><text x="0" y="58" text-anchor="middle" font-size="23" font-weight="700" fill="#281b16">Barcelona T2</text><text x="0" y="84" text-anchor="middle" font-size="16" fill="#756055">Parking AENA</text></g>
+  <g transform="translate(745 250)"><circle r="28" fill="#a13c24"/><text x="0" y="8" text-anchor="middle" font-size="22" fill="white">1</text><text x="0" y="58" text-anchor="middle" font-size="24" font-weight="700" fill="#281b16">Tánger</text></g>
+  <g transform="translate(1040 190)"><circle r="25" fill="#a13c24"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="white">2</text><text x="0" y="55" text-anchor="middle" font-size="20" font-weight="700" fill="#281b16">Chefchaouen</text></g>
+  <g transform="translate(1190 260)"><circle r="22" fill="#a13c24"/><text x="0" y="7" text-anchor="middle" font-size="18" fill="white">3</text><text x="0" y="50" text-anchor="middle" font-size="19" font-weight="700" fill="#281b16">Tetuán / Fnideq</text></g>
+  <g transform="translate(835 430)"><circle r="25" fill="#a13c24"/><text x="0" y="8" text-anchor="middle" font-size="20" fill="white">4</text><text x="0" y="55" text-anchor="middle" font-size="21" font-weight="700" fill="#281b16">Rabat</text></g>
+  <g transform="translate(920 625)"><circle r="29" fill="#a13c24"/><text x="0" y="9" text-anchor="middle" font-size="22" fill="white">5</text><text x="0" y="62" text-anchor="middle" font-size="23" font-weight="700" fill="#281b16">Marrakech</text><text x="0" y="88" text-anchor="middle" font-size="16" fill="#756055">Agafay · Chez Ali</text></g>
+  <g transform="translate(690 475)"><circle r="23" fill="#2f7182"/><text x="0" y="8" text-anchor="middle" font-size="18" fill="white">6</text><text x="0" y="53" text-anchor="middle" font-size="20" font-weight="700" fill="#281b16">Asilah</text></g>
+</g>
+
+<!-- road route -->
+<path d="M772 245 C875 210, 955 190, 1015 190" fill="none" stroke="#a13c24" stroke-width="7" marker-end="url(#arrowRed)"/>
+<path d="M1064 202 C1125 215, 1160 235, 1170 252" fill="none" stroke="#a13c24" stroke-width="7" marker-end="url(#arrowRed)"/>
+<path d="M1175 278 C1045 300, 900 325, 850 408" fill="none" stroke="#a13c24" stroke-width="7" marker-end="url(#arrowRed)"/>
+<path d="M845 454 C875 515, 905 570, 915 595" fill="none" stroke="#a13c24" stroke-width="7" marker-end="url(#arrowRed)"/>
+<path d="M895 608 C825 570, 755 520, 710 492" fill="none" stroke="#2f7182" stroke-width="7" marker-end="url(#arrowBlue)"/>
+<path d="M680 455 C695 385, 715 320, 735 280" fill="none" stroke="#2f7182" stroke-width="7" marker-end="url(#arrowBlue)"/>
+
+<rect x="1010" y="540" width="310" height="132" rx="22" fill="#fffdf8" stroke="#e3d5c5"/>
+<line x1="1040" y1="575" x2="1110" y2="575" stroke="#a13c24" stroke-width="7"/><text x="1130" y="582" font-family="Arial" font-size="18" fill="#281b16">Ruta hacia el sur</text>
+<line x1="1040" y1="615" x2="1110" y2="615" stroke="#2f7182" stroke-width="7"/><text x="1130" y="622" font-family="Arial" font-size="18" fill="#281b16">Regreso al norte</text>
+<line x1="1040" y1="652" x2="1110" y2="652" stroke="#2f7182" stroke-width="5" stroke-dasharray="10 8"/><text x="1130" y="659" font-family="Arial" font-size="18" fill="#281b16">Vuelos</text>
+</svg>
