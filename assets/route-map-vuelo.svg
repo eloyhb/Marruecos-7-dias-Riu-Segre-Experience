@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-label="Esquema de vuelo Barcelona-Tánger y ruta por Marruecos">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b8422a"/></marker>
+    <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2764a8"/></marker>
+    <style>.bg{fill:#f5efe4}.sea{fill:#dfeef5}.land{fill:#efe4ce}.city{fill:#173b31}.label{font:700 25px Arial,sans-serif;fill:#173b31}.small{font:600 18px Arial,sans-serif;fill:#53635c}.route{fill:none;stroke:#b8422a;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}.back{fill:none;stroke:#2764a8;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrowb)}.flight{fill:none;stroke:#4d6f89;stroke-width:5;stroke-dasharray:14 12}.dot{fill:#fff;stroke:#173b31;stroke-width:5}</style>
+  </defs>
+  <rect class="bg" width="1200" height="650" rx="28"/>
+  <path class="sea" d="M0 0h1200v650H0z"/>
+  <path class="land" d="M0 0h1200v160H0zM80 290c170-90 380-85 560-30 170 52 300 46 480 5l80 385H0z"/>
+  <text x="50" y="60" class="label">España</text>
+  <text x="50" y="345" class="label">Marruecos</text>
+  <circle class="dot" cx="760" cy="105" r="12"/><text x="782" y="113" class="label">Barcelona</text>
+  <circle class="dot" cx="550" cy="325" r="12"/><text x="575" y="333" class="label">Tánger</text>
+  <path class="flight" d="M755 120 C720 200 640 255 565 315"/>
+  <text x="650" y="214" class="small">✈ 26 SEP / 03 OCT</text>
+  <circle class="dot" cx="420" cy="405" r="10"/><text x="300" y="401" class="small">Chefchaouen</text>
+  <circle class="dot" cx="455" cy="355" r="10"/><text x="330" y="345" class="small">Tetuán</text>
+  <circle class="dot" cx="380" cy="490" r="10"/><text x="292" y="520" class="small">Rabat</text>
+  <circle class="dot" cx="565" cy="590" r="10"/><text x="595" y="600" class="small">Marrakech</text>
+  <circle class="dot" cx="505" cy="300" r="10"/><text x="395" y="286" class="small">Asilah</text>
+  <path class="route" d="M550 325 L420 405 L455 355 L550 325 L380 490 L565 590"/>
+  <path class="back" d="M565 590 C520 500 480 380 505 300 L550 325"/>
+  <text x="780" y="520" class="small">Rojo: recorrido hacia el sur</text>
+  <text x="780" y="553" class="small">Azul: vuelta por Asilah</text>
+  <text x="780" y="586" class="small">Discontinuo: vuelos BCN ↔ Tánger</text>
+</svg>
