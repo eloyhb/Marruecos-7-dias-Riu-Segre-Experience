@@ -1,21 +1,52 @@
-# Habibi's welcome to Morocco · v14 flat
+# Habibi's welcome to Morocco · v14
 
-Versión actualizada para GitHub Pages.
-
-## Cambios principales
-- Viaje en avión, no ferry.
-- Ida: Barcelona → Tánger, 26/09, 15:45 → 15:45.
-- Vuelta: Tánger → Barcelona, 03/10, 06:40 → 10:30.
-- 4 viajeros: Moha, Eloy, Santi y Alex.
-- Parking General T2 de Barcelona: 40 € pagados por Eloy; información sobre Edificio PC cubierto.
-- Hotel Marrakech actualizado a 117 € pendiente de pago.
-- Agafay actualizado a 46 € pagados por Moha.
-- Seguro Zurich actualizado a 22,77 € pagados por Moha.
-- Chez Ali estimado en 240 € para 4 personas.
-- Coche de alquiler: 70 € por persona, fuera del bote común.
-- Bote común: 300 € por persona / 1.200 € total.
-- Documentación Zurich incluida en `assets/`: certificado particular (con teléfono/email personal del tomador ocultados) y condiciones/coberturas generales.
-- Contactos Zurich del certificado: emergencia médica 24/7 +49 221 7715 7747; consultas/siniestros +49 221 7715 7734.
+Web estática preparada para GitHub Pages en formato **flat**.
 
 ## Publicación
-Subir el contenido de este ZIP directamente a la raíz del repositorio de GitHub Pages.
+
+Subir a la raíz del repositorio:
+
+- `index.html`
+- `.nojekyll`
+- carpeta `assets/`
+
+En GitHub Pages usar `Deploy from a branch`, rama `main`, carpeta `/ (root)`.
+
+## Itinerario actual
+
+- 4 viajeros: Moha, Eloy, Santi y Alex.
+- Ida en avión: **26/09/2026 · BCN 15:45 → Tánger 15:45**.
+- Vuelta en avión: **03/10/2026 · Tánger 06:40 → BCN 10:30**.
+- Coche de alquiler en Marruecos.
+- Ferry y trayecto Lleida–Algeciras eliminados.
+
+## Seguros incluidos en la web
+
+### Heymondo
+
+- Viaje Tranquilidad.
+- Póliza: `HEY2445897`.
+- Destino: Marruecos.
+- 4 viajeros.
+- Periodo: 26/09/2026–04/10/2026.
+- Asistencia 24 h: +34 918 259 626.
+- Documento web: `assets/heymondo-documentacion.pdf`.
+- El documento publicado omite DNI, teléfono personal y email del titular.
+
+### Zurich / Booking.com
+
+- Periodo del certificado: 28/09/2026–01/10/2026.
+- Emergencia médica 24/7: +49 221 7715 7747.
+- Consultas / siniestros: +49 221 7715 7734.
+- Certificado: `assets/certificado-zurich.pdf`.
+- Coberturas generales: `assets/seguro-zurich.pdf`.
+- El certificado publicado oculta el teléfono y el email personales del tomador.
+
+## Cambios v14
+
+- Se mantienen **los dos seguros**, Heymondo y Zurich, en la misma web.
+- Heymondo se muestra como cobertura principal del viaje completo.
+- Zurich se mantiene como cobertura adicional durante parte de la estancia.
+- Se añade Heymondo a la sección de emergencias y a Reservas.
+- Se mantienen los vuelos BCN ↔ Tánger y el itinerario en avión.
+- Mapa actualizado a avión + coche.
